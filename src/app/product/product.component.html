@@ -1,0 +1,241 @@
+<div class="container justify-content-center align-text-center p-2">
+    <div class="row g-0">
+        <div class="col-md-3 ">
+            <div class="card mb-3 shadow-lg p-3 bg-body rounded" style="height:auto; margin-right: 10px; ">
+                <h4 class="text-muted ">Filters</h4>
+                <hr style="color:lightgrey ;">
+                <ul class="nav flex-column" style="font-size: 18px;">
+                    <li class="nav-item">
+                        <a class="nav-link text-muted p-3" data-bs-toggle="collapse" href="#colordrp" role="button"
+                            aria-expanded="false" aria-controls="collapseExample">
+                            <img src="https://img.icons8.com/ios/18/4b636e/expand-arrow--v1.png" /> Colors
+                        </a>
+                        <div class="collapse" id="colordrp">
+                            <div class="card card-body">
+                                <ul class="nav flex-column p-2">
+                                    <li class="nav-item">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="">
+                                            Black
+                                        </div>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="flexCheckDefault">
+                                            White
+                                        </div>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="flexCheckChecked">
+                                            Green
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <hr style="color:lightgrey ;">
+                    <li class="nav-item">
+                        <a class="nav-link text-muted p-3" data-bs-toggle="collapse" href="#branddrp" role="button"
+                            aria-expanded="false" aria-controls="collapseExample">
+                            <img src="https://img.icons8.com/ios/18/4b636e/expand-arrow--v1.png" class="inline-flex" />
+                            Brand
+                        </a>
+                        <form class="d-flex">
+                            <input class="form-control me-2" type="text" placeholder="Search">
+                            <button class="btn" style="border: 1px solid lightgray;" type="button"><img
+                                    src="https://img.icons8.com/ios-glyphs/24/4b636e/search--v1.png" /></button>
+                        </form>
+                        <div class="collapse" id="branddrp">
+                            <div class="card card-body">
+                                <ul class="nav flex-column p-2">
+                                    <li class="nav-item">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="">
+                                            Puma
+                                        </div>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="flexCheckDefault">
+                                            Nike
+                                        </div>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="flexCheckChecked">
+                                            Adidas
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <hr style="color:lightgrey ;">
+                    <li class="nav-item ">
+                        <a class="nav-link text-muted p-3" href="#">
+                            <img src="https://img.icons8.com/material/18/4b636e/rupee--v1.png" /> Price
+                        </a>
+                        <input type="range" class="form-range" min="0" max="5" id="customRange2">
+                        <div class="row">
+                            <div class="col">
+                                <div class="dropdown">
+                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
+                                        id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Min
+                                    </a>
+                                    <ul class="dropdown-menu p-2" aria-labelledby="dropdownMenuLink">
+                                        <li>10000</li>
+                                        <li>12000</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col text-muted align-text-center">
+                                to
+                            </div>
+                            <div class="col">
+                                <div class="dropdown">
+                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
+                                        id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Max
+                                    </a>
+                                    <ul class="dropdown-menu p-2" aria-labelledby="dropdownMenuLink">
+                                        <li>50000</li>
+                                        <li>52000</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- products- start -->
+        <div class="col-md-9">
+            <div class="card mb-3 shadow-lg p-3 bg-body rounded" style="height:auto; ">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">User</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+                    </ol>
+                </nav>
+                <!-- end of breadcrumb -->
+                <!-- Start of sort by -->
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <div class="container-fluid">
+                            <div class="navbar-nav">
+                                <a class="nav-link" style="color: black;">Sort By </a>
+                                <a class="nav-link sortby" aria-current="page" href="#">Newest First</a>
+                                <a class="nav-link sortby " href="#">Price--low to High</a>
+                                <a class="nav-link sortby" href="#">Price--High to Low</a>
+                            </div>
+                        </div>
+                </nav>
+                <!-- end of sort by -->
+                <!-- start of products -->
+                <div class="row">
+                    <div class="col">
+                        <div class="card p-3 mb-5 bg-white rounded my-lst">
+                            <div class="position-absolute top-0 end-0 p-1">
+                                <button class="btn" type="submit">
+                                    <img src="https://img.icons8.com/ios-filled/24/b0bec5/like--v1.png" />
+                                </button>
+                            </div>
+                            <div class="row d-flex justify-content-center">
+                                <img src="./assets/images/HomeProducts/samsung.png" class="img-fluid" alt="..."
+                                    style="width:150px;height:200px;">
+                            </div>
+                            <div class="row">
+                                <h5>SAMSUNG </h5>
+                            </div>
+                            <div class="row">
+                                <h5>SAMSUNG Galaxy F22 (Denim Blue, 128 GB) (6 GB RAM)</h5>
+                            </div>
+                            <div class="row">
+                                <h5>₹ 12,000
+                                    <!-- discountedPrice-->
+                                    <span class="text-muted " style="font-size: 15px;"><s>₹ 15,000</s>
+                                        <!--price-->
+                                    </span>
+                                    <span style="font-size:15px;color: green;"> 23% Off
+                                        <!--deal-->
+                                    </span>
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card p-3 mb-5 bg-white rounded my-lst">
+                            <div class="position-absolute top-0 end-0 p-1">
+                                <button class="btn" type="submit">
+                                    <img src="https://img.icons8.com/ios-filled/24/b0bec5/like--v1.png" />
+                                </button>
+                            </div>
+                            <div class="row d-flex justify-content-center">
+                                <img src="./assets/images/HomeProducts/samsung.png" class="img-fluid" alt="..."
+                                    style="width:150px;height:200px;">
+                            </div>
+                            <div class="row">
+                                <h5>SAMSUNG </h5>
+                            </div>
+                            <div class="row">
+                                <h5>SAMSUNG Galaxy F22 (Denim Blue, 128 GB) (6 GB RAM)</h5>
+                            </div>
+                            <div class="row">
+                                <h5>₹ 12,000
+                                    <!-- discountedPrice-->
+                                    <span class="text-muted " style="font-size: 15px;"><s>₹ 15,000</s>
+                                        <!--price-->
+                                    </span>
+                                    <span style="font-size:15px;color: green;"> 23% Off
+                                        <!--deal-->
+                                    </span>
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card p-3 mb-5 bg-white rounded my-lst">
+                            <div class="position-absolute top-0 end-0 p-1">
+                                <button class="btn" type="submit">
+                                    <img src="https://img.icons8.com/ios-filled/24/b0bec5/like--v1.png" />
+                                </button>
+                            </div>
+                            <div class="row d-flex justify-content-center">
+                                <img src="./assets/images/HomeProducts/samsung.png" class="img-fluid" alt="..."
+                                    style="width:150px;height:200px;">
+                            </div>
+                            <div class="row">
+                                <h5>SAMSUNG </h5>
+                            </div>
+                            <div class="row">
+                                <h5>SAMSUNG Galaxy F22 (Denim Blue, 128 GB) (6 GB RAM)</h5>
+                            </div>
+                            <div class="row">
+                                <h5>₹ 12,000
+                                    <!-- discountedPrice-->
+                                    <span class="text-muted " style="font-size: 15px;"><s>₹ 15,000</s>
+                                        <!--price-->
+                                    </span>
+                                    <span style="font-size:15px;color: green;"> 23% Off
+                                        <!--deal-->
+                                    </span>
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- products - end -->
+
+    </div>
