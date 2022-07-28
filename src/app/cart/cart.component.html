@@ -1,0 +1,112 @@
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <div class="row">
+                <div class="card mb-3 shadow-lg p-3 bg-body">
+                    <h6> Deliver to: <b> Mumbai - 400025</b></h6>
+                    <div class="position-absolute top-0 end-0 p-2">
+                        <button class="btn btn-outline-primary" [routerLink]="['/address']" type="submit">
+                            Change
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="card mb-3 shadow-lg p-3 bg-body ">
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="row">
+                                <div class="row d-flex justify-content-center">
+                                    <img src="./assets/images/HomeProducts/samsung.png" class="img-fluid" alt="..."
+                                        style="width:auto;height:auto;">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="btn-group mr-2" role="group">
+                                    <button type="button" class="btn btn-outline-secondary" (click)="dec()">-</button>
+                                    <button type="button" class="btn btn-outline-secondary">{{num}}</button>
+                                    <button type="button" class="btn btn-outline-secondary" (click)="inc()">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row">
+                                <h5>SAMSUNG Galaxy F22 (Denim Blue, 128 GB) (6 GB RAM)</h5>
+                            </div>
+                            <div class="row">
+                                <small class="text-muted">Seller: Rutika</small>
+                            </div>
+                            <div class="row">
+                                <h3>₹ 12,000
+                                    <!-- discountedPrice-->
+                                    <span class="text-muted " style="font-size: 15px;"><s>₹ 15,000</s>
+                                        <!--price-->
+                                    </span>
+                                    <span style="font-size:18px;color: green;"><b>23% Off</b>
+                                        <!--deal-->
+                                    </span>
+                                </h3>
+                            </div>
+                            <div class="row">
+                                <h6>Delivery By</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="position-absolute top-0 end-0 p-1">
+                        <button class="btn" type="submit" style="border-radius: 100px;">
+                            <img src="https://img.icons8.com/ios-glyphs/30/b0bec5/filled-trash.png">
+                        </button>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col"><button class="btn text-white p-2" type="submit"
+                                style="background-color: #ff6f00;float: right;">PLACE ORDER</button></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card mb-3 shadow-lg p-3 bg-body ">
+                <h6 class="text-muted">PRICE DETAILS</h6>
+                <hr>
+                <div class="row">
+                    <div class="col">
+                        <h6>Price</h6>
+                    </div>
+                    <div class="col">
+                        <h6 style="float: right;">₹15,000</h6>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <h6>Discount</h6>
+                    </div>
+                    <div class="col">
+                        <h6 style="color:green;float: right;"> - ₹3,000</h6>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <h6>Delivery Charges</h6>
+                    </div>
+                    <div class="col">
+                        <h6 style="color:green;float: right;"> FREE</h6>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                        <div class="col">
+                            <h6><b>Total Amount</b></h6>
+                        </div>
+                        <div class="col">
+                            <h6 style="float: right;"><b>₹12,000</b></h6>
+                        </div>
+                </div>
+                <hr>
+                <h6 style="color:green;">You will save ₹3,000 on this order.</h6>
+            </div>
+        </div>
+    </div>
+</div>

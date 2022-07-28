@@ -1,0 +1,59 @@
+<div class="container bg shadow-lg mb-5 rounded">
+    <div class="row g-0">
+        <div class="col-md-5 text-white p-3" style="background: #302b63">
+            <h3>Looks like you are new here!</h3>
+            <br>
+            <h6>Signup to get started.</h6>
+            <img src="./assets/images/userSignup.png" class="img-fluid rounded" alt="...">
+        </div>
+        <div class="col p-5">
+            <form>
+            <div class="row ">
+                <div class="col">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="Full Name"
+                            name="name" >
+                        <label for="floatingInput">Full Name</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-floating">
+                        <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example" name="gender">
+                          <option selected value="null">--Select Gender-</option>
+                          <option value="Male">Male</option>
+                          <option value="Female">Female</option>
+                          <option value="Other">Other</option>
+                        </select>
+                        <label for="floatingSelectGrid">Gender</label>
+                        </div>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="form-floating p-2 mb-3">
+                    <input type="email" class="form-control" id="floatingInput"
+                        placeholder="Email" name="email" >
+                    <label for="floatingInput">Email</label>
+                </div>
+            </div>
+            <div class="row ">
+              <div class="col">
+                  <div class="form-floating mb-3">
+                      <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+                          name="password" >
+                      <label for="floatingPassword">Password</label>
+                  </div>
+              </div>
+              <div class="col">
+                  <div class="form-floating">
+                      <input type="text" class="form-control" id="floatingInput"
+                          placeholder="Phone No" name="phoneNo" >
+                      <label for="floatingInput">Phone No</label>
+                  </div>
+              </div>
+          </div>
+            <button type="submit" class="btn p-2 text-white" style="width:100%;font-size:20px; background-color:#ffab00;" name="signup"><b>Signup</b></button>
+            <b style="width:100%;font-size:15px; color: #0091ea;">Existing User? <a class="btn btn-light p-2" [routerLink]="['/login']">Log in </a></b>
+        </form>
+        </div>
+    </div>
+</div>
