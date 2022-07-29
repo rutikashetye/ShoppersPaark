@@ -2,23 +2,39 @@
     <div class="row g-0">
         <div class="col-md-5 text-white p-3" style="background: #302e35">
             <h3>Admin Login</h3>
-    <br>
+            <br>
             <img src="./assets/images/adminLogin.png" class="img-fluid rounded" alt="...">
         </div>
         <div class="col p-5">
-            <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingInput" placeholder="Enter Admin Id" name="adminId">
-                <label for="floatingInput">Enter Admin Id</label>
-            </div>
-            <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingInput" placeholder="Enter Password" name="password">
-                <label for="floatingInput">Enter Password</label>
-            </div>
-            <button type="button" class="btn p-2 text-white" style="width:100%;font-size:20px; background-color:#302e35;" name="adminLogin"><b>Login</b></button>
-            <br>
-            <br>
-            <h6 style="color:#0f0c29 ;">Not an admin? <a style="color:#0f0c29 ;" routerLink="/home">Go to Home Page.</a>
-            </h6>
+            <form #adminlogForm="ngForm" (ngSubmit)="adminLogin()">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" required ngModel name="adminId"
+                        #adminId="ngModel" placeholder="Enter Admin Id" [(ngModel)]="ad.adminId">
+                    <label for="floatingInput">Enter Admin Id</label>
+                    <div class="alert alert-danger" *ngIf="(password.dirty || password.touched) && adminId.invalid">
+                        Please enter adminId.
+                    </div>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="floatingInput" placeholder="Enter Password" ngModel
+                        name="password" #password="ngModel" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                        name="password" [(ngModel)]="ad.password">
+                    <label for="floatingInput">Enter Password</label>
+                    <div class="alert alert-danger" *ngIf="password.invalid && (password.dirty || password.touched)">
+                        <div *ngIf="password.errors?.['required']">Enter password</div>
+                        <div *ngIf="password.errors?.['pattern']">Invalid password.(Please ensure that your password must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters )</div>
+                    </div>
+
+                </div>
+
+                <button type="submit" class="btn p-2 text-white"
+                    style="width:100%;font-size:20px; background-color:#302e35;" name="adminLogin"><b>Login</b></button>
+                <br>
+                <br>
+                <h6 style="color:#0f0c29 ;">Not an admin? <a style="color:#0f0c29 ;" routerLink="/home">Go to Home
+                        Page.</a>
+                </h6>
+            </form>
         </div>
     </div>
 </div>

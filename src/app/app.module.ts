@@ -23,6 +23,9 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { RetailerLoginComponent } from './retailer-login/retailer-login.component';
 import { AdminDashComponent } from './admin-dash/admin-dash.component';
 import { RetailerDashComponent } from './retailer-dash/retailer-dash.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { AdminViewProductsComponent } from './admin-view-products/admin-view-products.component';
+
 
 @NgModule({
   declarations: [
@@ -45,12 +48,14 @@ import { RetailerDashComponent } from './retailer-dash/retailer-dash.component';
     AdminLoginComponent,
     RetailerLoginComponent,
     AdminDashComponent,
-    RetailerDashComponent
+    RetailerDashComponent,
+    AdminViewProductsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

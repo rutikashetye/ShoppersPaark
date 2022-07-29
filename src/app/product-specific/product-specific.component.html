@@ -1,14 +1,14 @@
 <div class="container justify-content-center align-text-center p-2" style="background-color: white">
     <div class="row g-0">
-        <div class="col-md-4 ">  
+        <div class="col-md-4 ">
             <div class="position-relative top-0 end-0 p-1">
                 <button class="btn" type="submit" style="border-radius: 100px;">
                     <img src="https://img.icons8.com/ios-filled/40/b0bec5/like--v1.png" />
                 </button>
             </div>
-            <div class="row d-flex justify-content-center" >
+            <div class="row d-flex justify-content-center">
                 <img src="./assets/images/HomeProducts/samsung.png" class="img-fluid" alt="..."
-                style="width:700px;height:500px;" >
+                    style="width:700px;height:500px;">
             </div>
         </div>
         <!-- product image ^  -->
@@ -42,54 +42,147 @@
                 </h2>
             </div>
             <div class="row">
-                    <h6 class="text-muted"><img src="https://img.icons8.com/material/24/ffab00/marker--v1.png"/>Deliver to</h6>
+                <h6 class="text-muted"><img src="https://img.icons8.com/material/24/ffab00/marker--v1.png" />Deliver to
+                </h6>
             </div>
             <div class="row">
-            <div class="col-6">
+                <div class="col-6">
                     <div class="form-floating">
-                      <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example" name="state">
-                        <option selected value="null">--Select Delivery Address</option>
-                        <option value="add1">Mumbai-400025</option>
-                    </select>
-                    <label for="floatingSelectGrid">Delivery Address</label>
-                  </div>
+                        <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example"
+                            name="state">
+                            <option selected value="null">--Select Delivery Address</option>
+                            <option value="add1">Mumbai-400025</option>
+                        </select>
+                        <label for="floatingSelectGrid">Delivery Address</label>
+                    </div>
                 </div>
             </div>
             <br>
             <div class="row">
                 <h6 class="text-muted">
-                Blue Color
-                4 GB RAM | 64 GB ROM | Expandable Upto 1 TB
-                16.76 cm (6.6 inch) Full HD+ Display
-                50MP + 5MP + 2MP | 8MP Front Camera
-                6000 mAh Lithium Ion Battery
-                Exynos 850 Processor
-            </h6>
+                    Blue Color
+                    4 GB RAM | 64 GB ROM | Expandable Upto 1 TB
+                    16.76 cm (6.6 inch) Full HD+ Display
+                    50MP + 5MP + 2MP | 8MP Front Camera
+                    6000 mAh Lithium Ion Battery
+                    Exynos 850 Processor
+                </h6>
             </div>
             <div class="row">
                 <div class="col-3">
                     <button type="button " class="text-white btn p-3 " style="background-color:#ffab00;width:100%;"
                         name="addToCart">
-                        <img src="https://img.icons8.com/ios-glyphs/25/ffffff/shopping-cart--v1.png"/>&nbsp;
+                        <img src="https://img.icons8.com/ios-glyphs/25/ffffff/shopping-cart--v1.png" />&nbsp;
                         <b>Add to Cart</b></button>
                 </div>
                 <div class="col-3">
                     <button type="button" class="text-white btn p-3 " style="background-color:#ff6d00;width:100%;"
-                        name="buyNow">
-                        <img src="https://img.icons8.com/fluency-systems-filled/25/ffffff/lightning-bolt.png"/>&nbsp;
+                        name="buyNow" data-bs-toggle="modal" data-bs-target="#Buynow">
+                        <img src="https://img.icons8.com/fluency-systems-filled/25/ffffff/lightning-bolt.png" />&nbsp;
                         <b>Buy Now</b></button>
                 </div>
             </div>
         </div>
     </div>
     <!-- End of Product specific content -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="Buynow" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Card Payment</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form class="form" role="form" autocomplete="off">
+                    <div class="modal-body">
+                        <div class="alert alert-info p-2 pb-3">
+                            <a class="close font-weight-normal initialism" data-dismiss="alert"
+                                href="#"><samp>×</samp></a>
+                            CVC code is required.
+                        </div>
+                        <div class="form-group">
+                            <label for="cc_name">Card Holder's Name</label>
+                            <input type="text" class="form-control" id="cc_name" pattern="\w+ \w+.*"
+                                title="First and last name" required="required">
+                        </div>
+                        <div class="form-group">
+                            <label>Card Number</label>
+                            <input type="text" class="form-control" autocomplete="off" maxlength="20" pattern="\d{16}"
+                                title="Credit card number" required="">
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-12">Card Exp. Date</label>
+                            <div class="col-md-4">
+                                <select class="form-control" name="cc_exp_mo" size="0">
+                                    <option value="01">01</option>
+                                    <option value="02">02</option>
+                                    <option value="03">03</option>
+                                    <option value="04">04</option>
+                                    <option value="05">05</option>
+                                    <option value="06">06</option>
+                                    <option value="07">07</option>
+                                    <option value="08">08</option>
+                                    <option value="09">09</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <select class="form-control" name="cc_exp_yr" size="0">
+                                    <option>2022</option>
+                                    <option>2023</option>
+                                    <option>2024</option>
+                                    <option>2025</option>
+                                    <option>2026</option>
+                                    <option>2027</option>
+                                    <option>2028</option>
+                                    <option>2029</option>
+                                    <option>2030</option>
+                                    <option>2031</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" autocomplete="off" maxlength="3" pattern="\d{3}"
+                                    title="Three digits at back of your card" required="" placeholder="CVC">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-md-12">Amount</label>
+                        </div>
+                        <div class="form-inline">
+                            <div class="input-group">
+                                <div class="input-group-prepend"><span class="input-group-text">₹</span></div>
+                                <input type="text" class="form-control text-right" id="exampleInputAmount"
+                                    placeholder="Enter amount">
+                                <div class="input-group-append"><span class="input-group-text">.00</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="form-group row">
+                            <div class="col-md-6">
+                                <button type="reset" class="btn btn-default btn-lg btn-block">Cancel</button>
+                            </div>
+                            <div class="col-md-6">
+                                <button type="submit" class="btn btn-success btn-lg btn-block">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- modal end -->
     <br>
     <!-- Similar products -->
 
     <div class="card mb-3 shadow-lg p-3 bg-body rounded" style="height:auto; ">
-        <h4>Similar Products</h4> 
-            <div class="position-absolute top-0 end-0 p-3">
-            <button class="btn btn-primary p-2" type="submit" >
+        <h4>Similar Products</h4>
+        <div class="position-absolute top-0 end-0 p-3">
+            <button class="btn btn-primary p-2" type="submit">
                 VIEW ALL
             </button>
         </div>
@@ -98,12 +191,12 @@
             <div class="col">
                 <div class="card p-3 mb-5 bg-white rounded my-lst">
                     <div class="position-absolute top-0 end-0 p-1">
-                        <button class="btn" type="submit" >
-                            <img src="https://img.icons8.com/ios-filled/24/b0bec5/like--v1.png"/>
+                        <button class="btn" type="submit">
+                            <img src="https://img.icons8.com/ios-filled/24/b0bec5/like--v1.png" />
                         </button>
                     </div>
-                    <div class="row d-flex justify-content-center">  
-                            <img src="./assets/images/HomeProducts/samsung.png" class="img-fluid" alt="..."
+                    <div class="row d-flex justify-content-center">
+                        <img src="./assets/images/HomeProducts/samsung.png" class="img-fluid" alt="..."
                             style="width:150px;height:200px;">
                     </div>
                     <div class="row">
@@ -113,9 +206,9 @@
                         <h5>SAMSUNG Galaxy F22 (Denim Blue, 128 GB) (6 GB RAM)</h5>
                     </div>
                     <div class="row">
-                        <h5>₹ 12,000
+                        <h5>₹12,000
                             <!-- discountedPrice-->
-                            <span class="text-muted " style="font-size: 15px;"><s>₹ 15,000</s>
+                            <span class="text-muted " style="font-size: 15px;"><s>₹15,000</s>
                                 <!--price-->
                             </span>
                             <span style="font-size:15px;color: green;"> 23% Off
@@ -128,8 +221,8 @@
             <div class="col">
                 <div class="card p-3 mb-5 bg-white rounded my-lst">
                     <div class="position-absolute top-0 end-0 p-1">
-                        <button class="btn" type="submit" >
-                            <img src="https://img.icons8.com/ios-filled/24/b0bec5/like--v1.png"/>
+                        <button class="btn" type="submit">
+                            <img src="https://img.icons8.com/ios-filled/24/b0bec5/like--v1.png" />
                         </button>
                     </div>
                     <div class="row d-flex justify-content-center">
@@ -158,8 +251,8 @@
             <div class="col">
                 <div class="card p-3 mb-5 bg-white rounded my-lst">
                     <div class="position-absolute top-0 end-0 p-1">
-                        <button class="btn" type="submit" >
-                            <img src="https://img.icons8.com/ios-filled/24/b0bec5/like--v1.png"/>
+                        <button class="btn" type="submit">
+                            <img src="https://img.icons8.com/ios-filled/24/b0bec5/like--v1.png" />
                         </button>
                     </div>
                     <div class="row d-flex justify-content-center">
@@ -186,37 +279,35 @@
                 </div>
             </div>
             <div class="col">
-              <div class="card p-3 mb-5 bg-white rounded my-lst">
-                  <div class="position-absolute top-0 end-0 p-1">
-                      <button class="btn" type="submit" >
-                          <img src="https://img.icons8.com/ios-filled/24/b0bec5/like--v1.png"/>
-                      </button>
-                  </div>
-                  <div class="row d-flex justify-content-center">
-                      <img src="./assets/images/HomeProducts/samsung.png" class="img-fluid" alt="..."
-                          style="width:150px;height:200px;">
-                  </div>
-                  <div class="row">
-                      <h5>SAMSUNG </h5>
-                  </div>
-                  <div class="row">
-                      <h5>SAMSUNG Galaxy F22 (Denim Blue, 128 GB) (6 GB RAM)</h5>
-                  </div>
-                  <div class="row">
-                      <h5>₹ 12,000
-                          <!-- discountedPrice-->
-                          <span class="text-muted " style="font-size: 15px;"><s>₹ 15,000</s>
-                              <!--price-->
-                          </span>
-                          <span style="font-size:15px;color: green;"> 23% Off
-                              <!--deal-->
-                          </span>
-                      </h5>
-                  </div>
-              </div>
-          </div>
+                <div class="card p-3 mb-5 bg-white rounded my-lst">
+                    <div class="position-absolute top-0 end-0 p-1">
+                        <button class="btn" type="submit">
+                            <img src="https://img.icons8.com/ios-filled/24/b0bec5/like--v1.png" />
+                        </button>
+                    </div>
+                    <div class="row d-flex justify-content-center">
+                        <img src="./assets/images/HomeProducts/samsung.png" class="img-fluid" alt="..."
+                            style="width:150px;height:200px;">
+                    </div>
+                    <div class="row">
+                        <h5>SAMSUNG </h5>
+                    </div>
+                    <div class="row">
+                        <h5>SAMSUNG Galaxy F22 (Denim Blue, 128 GB) (6 GB RAM)</h5>
+                    </div>
+                    <div class="row">
+                        <h5>₹ 12,000
+                            <!-- discountedPrice-->
+                            <span class="text-muted " style="font-size: 15px;"><s>₹ 15,000</s>
+                                <!--price-->
+                            </span>
+                            <span style="font-size:15px;color: green;"> 23% Off
+                                <!--deal-->
+                            </span>
+                        </h5>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
-
 </div>

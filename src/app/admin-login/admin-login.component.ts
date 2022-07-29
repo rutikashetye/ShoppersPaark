@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Admin } from '../admin';
+import { AdminService } from '../adminservice.service';
 
 @Component({
   selector: 'app-admin-login',
@@ -7,9 +10,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminLoginComponent implements OnInit {
 
-  constructor() { }
+  ad: Admin =new Admin;
+  isValid: boolean;
+  message: string;
+  constructor(private service: AdminService, private route: Router) { }
 
   ngOnInit(): void {
   }
 
-}
+  adminLogin(){
+    console.log(JSON.stringify(this.ad));
+    this.service.loginAdmin(this.ad)
+      .subscribe(
+        msg => {
+          this.isValid = msg;
+          if (this.isValid) {
+                  sessionStorage.setItem("adminDetails",JSON.stringify(this.ad.adminId));
+                  this.route.navigate(['/admin-dash']);
+                }
+                else {
+                  this.message = "Login Failed.";
+                } 
+          }
+      );
+        }
+      }

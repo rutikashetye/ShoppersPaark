@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminDashComponent } from './admin-dash/admin-dash.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AdminViewProductsComponent } from './admin-view-products/admin-view-products.component';
 import { HomeComponent } from './home/home.component';
 import { MyordersComponent } from './myorders/myorders.component';
 import { ProductSpecificComponent } from './product-specific/product-specific.component';
@@ -21,17 +23,19 @@ const routes: Routes = [
   {path:'wishlist', component:WishlistComponent},
   {path:'address', component:ShippingAddressComponent},
 
-  {path:'products', component:ProductComponent},
+  {path:'products/:cat', component:ProductComponent},
   {path:'product', component:ProductSpecificComponent},
 
   {path:'login', component:UserLoginComponent},
   {path:'signup', component:UserSignupComponent},
 
   {path:'retailer-login', component:RetailerLoginComponent},
+
+  // Admin dashboard
   {path:'admin-login', component:AdminLoginComponent},
-
-
-
+  {path:'admin-dash', component:AdminDashComponent},
+  {path:'viewproducts', component:AdminViewProductsComponent},
+  
 ];
 
 @NgModule({
