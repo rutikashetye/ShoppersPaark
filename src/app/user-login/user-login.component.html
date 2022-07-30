@@ -1,19 +1,23 @@
 <div class="container bg shadow-lg mb-5 rounded">
     <div class="row g-0">
         <div class="col-md-5 text-white p-3" style="background: #302b63">
-            <h3>Login</h3>
+            <h3>User Login</h3>
             <br>
             <h6>Get access to your Orders, Wishlist and Recommendations.</h6>
             <img src="./assets/images/userLogin.png" class="img-fluid rounded" alt="...">
         </div>
         <div class="col p-5">
-            <form>
+            <form #userlogForm="ngForm" (ngSubmit)="userLogin()">
             <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingInput" placeholder="Enter User Id" name="userId">
+                <input type="text" class="form-control" id="floatingInput" required ngModel name="userId" 
+                    #userId="ngModel" placeholder="Enter User Id" [(ngModel)]="us.userId"> 
                 <label for="floatingInput">Enter User Id</label>
+                <div class="alert alert-danger" *ngIf="(userId.dirty || userId.touched) && userId.invalid">
+                    Please enter userId.
+                </div>
             </div>
             <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingInput" placeholder="Enter Password" name="password">
+                <input type="text" class="form-control" id="floatingInput" placeholder="Enter Password" name="password" [(ngModel)]="us.password">
                 <label for="floatingInput">Enter Password</label>
             </div>
             <button type="submit" class="btn p-2 text-white" style="width:100%;font-size:20px; background-color:#ffab00;" name="login"><b>Login</b></button>

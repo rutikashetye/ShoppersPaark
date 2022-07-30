@@ -26,7 +26,7 @@ export class AdminLoginComponent implements OnInit {
           this.isValid = msg;
           if (this.isValid) {
                   sessionStorage.setItem("adminDetails",JSON.stringify(this.ad.adminId));
-                  this.route.navigate(['/admin-dash']);
+                  this.route.navigate(['/admin-dash',this.ad.adminId]);
                 }
                 else {
                   this.message = "Login Failed.";
