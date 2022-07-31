@@ -13,120 +13,28 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <tr *ngFor="let c of product">
                     <td>
                         <div class="d-flex align-items-center">
                             <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt=""
                                 style="width: 75px; height: 75px" class="" />
-                            <div class="ms-3">
-                                <p class="fw-bold mb-1">Brand</p>
-                                <p class="text-muted mb-0">ProductName</p>
-                            </div>
+                                <div class="ms-3">
+                                    <p class="fw-bold mb-1">{{c.productName}}</p>
+                                    <p class="text-muted mb-0">{{c.description}}</p>
+                                </div>
                         </div>
                     </td>
                     <td>
-                        <div class="ms-1">101
+                        <div class="ms-1">{{c.productId}}
                         </div>
                     </td>
-                    <td>Phones</td>
-                    <td>50</td>
-                    <td>1001</td>
+                    <td>{{c.category}}</td>
+                    <td>{{c.available_quantity}}</td>
+                    <td>{{c.retailer.retailerId}}</td>
                     <td>
-                        <button type="button" class="btn btn-success">Approve</button>
+                        <button type="submit" (click)="ApproveProduct(c.productId)" class="btn btn-outline-success">Approve</button>
                     </td>
-                    <td><button type="button" class="btn btn-primary">Delete</button></td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="d-flex align-items-center">
-                            <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt=""
-                                style="width: 75px; height: 75px" class="" />
-                            <div class="ms-3">
-                                <p class="fw-bold mb-1">SamsungM31</p>
-                                <p class="text-muted mb-0">Features</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="ms-1">101
-                        </div>
-                    </td>
-                    <td>Phones</td>
-                    <td>50</td>
-                    <td>1001</td>
-                    <td>
-                        <button type="button" class="btn btn-success">Approve</button>
-                    </td>
-                    <td><button type="button" class="btn btn-primary">Delete</button></td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="d-flex align-items-center">
-                            <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt=""
-                                style="width: 75px; height: 75px" class="" />
-                            <div class="ms-3">
-                                <p class="fw-bold mb-1">SamsungM31</p>
-                                <p class="text-muted mb-0">Features</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="ms-1">101
-                        </div>
-                    </td>
-                    <td>Phones</td>
-                    <td>50</td>
-                    <td>1001</td>
-                    <td>
-                        <button type="button" class="btn btn-success">Approve</button>
-                    </td>
-                    <td><button type="button" class="btn btn-primary">Delete</button></td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="d-flex align-items-center">
-                            <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt=""
-                                style="width: 75px; height: 75px" class="" />
-                            <div class="ms-3">
-                                <p class="fw-bold mb-1">SamsungM31</p>
-                                <p class="text-muted mb-0">Features</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="ms-1">101
-                        </div>
-                    </td>
-                    <td>Phones</td>
-                    <td>50</td>
-                    <td>1001</td>
-                    <td>
-                        <button type="button" class="btn btn-success">Approve</button>
-                    </td>
-                    <td><button type="button" class="btn btn-primary">Delete</button></td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="d-flex align-items-center">
-                            <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt=""
-                                style="width: 75px; height: 75px" class="" />
-                            <div class="ms-3">
-                                <p class="fw-bold mb-1">SamsungM31</p>
-                                <p class="text-muted mb-0">Features</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="ms-1">101
-                        </div>
-                    </td>
-                    <td>Phones</td>
-                    <td>50</td>
-                    <td>1001</td>
-                    <td>
-                        <button type="button" class="btn btn-success">Approve</button>
-                    </td>
-                    <td><button type="button" class="btn btn-primary">Delete</button></td>
+                    <td><button type="button" class="btn btn-outline-primary">Reject</button></td>
                 </tr>
             </tbody>
         </table>

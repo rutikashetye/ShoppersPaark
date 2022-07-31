@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserLogin } from '../user-login';
-import { UserserviceService } from '../userservice.service';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-user-login',
@@ -13,7 +13,7 @@ export class UserLoginComponent implements OnInit {
   us: UserLogin =new UserLogin;
   isValid:boolean;
   message:string;
-  constructor(private service: UserserviceService, private route: Router) { }
+  constructor(private service: UserService, private route: Router) { }
 
   ngOnInit(): void {
   }

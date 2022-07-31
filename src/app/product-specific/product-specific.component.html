@@ -16,27 +16,27 @@
         <div class="col-md-8 p-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">User</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+                    <li class="breadcrumb-item"><a [routerLink]="['/']">Home</a></li>
+                    <li class="breadcrumb-item"><a [routerLink]="['/products',p.category]">{{p.category}}</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{p.brand}}</li>
                 </ol>
             </nav>
             <div class="row">
-                <h5 class="text-muted">SAMSUNG </h5>
+                <h5 class="text-muted">{{p.brand}}</h5>
             </div>
             <div class="row">
-                <h4>SAMSUNG Galaxy F22 (Denim Blue, 128 GB) (6 GB RAM)</h4>
+                <h4>{{p.productName}}</h4>
             </div>
             <div class="row">
                 <small style="color: green;"><b>Special Price</b></small>
             </div>
             <div class="row">
-                <h2>₹12,000
+                <h2>₹{{p.discountedPrice}}
                     <!-- discountedPrice-->
-                    <span class="text-muted " style="font-size: 18px;"><s>₹15,000</s>
+                    <span class="text-muted " style="font-size: 18px;"><s>₹{{p.price}}</s>
                         <!--price-->
                     </span>
-                    <span style="font-size:20px;color: green;"><b>23% Off</b>
+                    <span style="font-size:20px;color: green;"><b>{{p.deal}}% Off</b>
                         <!--deal-->
                     </span>
                 </h2>
@@ -60,12 +60,7 @@
             <br>
             <div class="row">
                 <h6 class="text-muted">
-                    Blue Color
-                    4 GB RAM | 64 GB ROM | Expandable Upto 1 TB
-                    16.76 cm (6.6 inch) Full HD+ Display
-                    50MP + 5MP + 2MP | 8MP Front Camera
-                    6000 mAh Lithium Ion Battery
-                    Exynos 850 Processor
+                    {{p.description}}
                 </h6>
             </div>
             <div class="row">

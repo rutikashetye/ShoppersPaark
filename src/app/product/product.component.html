@@ -123,9 +123,8 @@
             <div class="card mb-3 shadow-lg p-3 bg-body rounded" style="height:auto; ">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item"><a href="#">User</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+                        <li class="breadcrumb-item"><a [routerLink]="['/home']">Home</a></li>
+                        <li class="breadcrumb-item active uppercase" >{{cat}}</li>
                     </ol>
                 </nav>
                 <!-- end of breadcrumb -->
@@ -142,9 +141,9 @@
                 </nav>
                 <!-- end of sort by -->
                 <!-- start of products -->
-                <div class="row">
-                    <div class="col">
-                        <div class="card p-3 mb-5 bg-white rounded my-lst" [routerLink]="['/product']">
+                <div class="row" >
+                    <div class="col" *ngFor="let c of product">
+                        <div class="card p-3 mb-5 bg-white rounded my-lst" [routerLink]="['/product',c.productId]">
                             <div class="position-absolute top-0 end-0 p-1">
                                 <button class="btn" type="submit">
                                     <img src="https://img.icons8.com/ios-filled/24/b0bec5/like--v1.png" />
@@ -155,78 +154,18 @@
                                     style="width:150px;height:200px;">
                             </div>
                             <div class="row">
-                                <h5>SAMSUNG </h5>
+                                <h5>{{c.brand}}</h5>
                             </div>
                             <div class="row">
-                                <h5>SAMSUNG Galaxy F22 (Denim Blue, 128 GB) (6 GB RAM)</h5>
+                                <h5>{{c.productName}}</h5>
                             </div>
                             <div class="row">
-                                <h5>₹ 12,000
+                                <h5>₹{{c.discountedPrice}}
                                     <!-- discountedPrice-->
-                                    <span class="text-muted " style="font-size: 15px;"><s>₹ 15,000</s>
+                                    <span class="text-muted " style="font-size: 15px;"><s>₹{{c.price}}</s>
                                         <!--price-->
                                     </span>
-                                    <span style="font-size:15px;color: green;"> 23% Off
-                                        <!--deal-->
-                                    </span>
-                                </h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card p-3 mb-5 bg-white rounded my-lst" [routerLink]="['/product']">
-                            <div class="position-absolute top-0 end-0 p-1">
-                                <button class="btn" type="submit">
-                                    <img src="https://img.icons8.com/ios-filled/24/b0bec5/like--v1.png" />
-                                </button>
-                            </div>
-                            <div class="row d-flex justify-content-center">
-                                <img src="./assets/images/HomeProducts/samsung.png" class="img-fluid" alt="..."
-                                    style="width:150px;height:200px;">
-                            </div>
-                            <div class="row">
-                                <h5>SAMSUNG </h5>
-                            </div>
-                            <div class="row">
-                                <h5>SAMSUNG Galaxy F22 (Denim Blue, 128 GB) (6 GB RAM)</h5>
-                            </div>
-                            <div class="row">
-                                <h5>₹ 12,000
-                                    <!-- discountedPrice-->
-                                    <span class="text-muted " style="font-size: 15px;"><s>₹15,000</s>
-                                        <!--price-->
-                                    </span>
-                                    <span style="font-size:15px;color: green;"> 23% Off
-                                        <!--deal-->
-                                    </span>
-                                </h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card p-3 mb-5 bg-white rounded my-lst" [routerLink]="['/product']">
-                            <div class="position-absolute top-0 end-0 p-1">
-                                <button class="btn" type="submit">
-                                    <img src="https://img.icons8.com/ios-filled/24/b0bec5/like--v1.png" />
-                                </button>
-                            </div>
-                            <div class="row d-flex justify-content-center">
-                                <img src="./assets/images/HomeProducts/samsung.png" class="img-fluid" alt="..."
-                                    style="width:150px;height:200px;">
-                            </div>
-                            <div class="row">
-                                <h5>SAMSUNG </h5>
-                            </div>
-                            <div class="row">
-                                <h5>SAMSUNG Galaxy F22 (Denim Blue, 128 GB) (6 GB RAM)</h5>
-                            </div>
-                            <div class="row">
-                                <h5>₹ 12,000
-                                    <!-- discountedPrice-->
-                                    <span class="text-muted " style="font-size: 15px;"><s>₹ 15,000</s>
-                                        <!--price-->
-                                    </span>
-                                    <span style="font-size:15px;color: green;"> 23% Off
+                                    <span style="font-size:15px;color: green;"> {{c.deal}}% Off
                                         <!--deal-->
                                     </span>
                                 </h5>

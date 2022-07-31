@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Product } from '../product';
+import { ProductService } from '../product.service';
+import { RetailerService } from '../retailer.service';
 
 @Component({
   selector: 'app-product-specific',
@@ -6,10 +10,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-specific.component.css']
 })
 export class ProductSpecificComponent implements OnInit {
-
-  constructor() { }
+  pid: number;
+  p: Product = new Product;
+  constructor(private route: ActivatedRoute, private service: ProductService) { }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      this.pid = +params.get('id');
+    }
+    );
+    this.service.getProductByProductId(this.pid).subscribe(
+      obj => {
+        this.p = obj;
+      }
+    );
   }
 
 }

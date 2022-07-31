@@ -17,8 +17,13 @@
                 </div>
             </div>
             <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingInput" placeholder="Enter Password" name="password" [(ngModel)]="us.password">
+                <input type="password" class="form-control" id="floatingInput" placeholder="Enter Password" required name="password" 
+                #password="ngModel" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" [(ngModel)]="us.password">
                 <label for="floatingInput">Enter Password</label>
+                <div class="alert alert-danger" *ngIf="password.invalid && (password.dirty || password.touched)">
+                    <div *ngIf="password.errors?.['required']">Enter password</div>
+                    <div *ngIf="password.errors?.['pattern']">Invalid password.(Please ensure that your password must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters )</div>
+                </div>
             </div>
             <button type="submit" class="btn p-2 text-white" style="width:100%;font-size:20px; background-color:#ffab00;" name="login"><b>Login</b></button>
             <br>
