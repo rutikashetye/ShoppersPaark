@@ -14,11 +14,10 @@ export class RetailerService {
     return this.http.get<Product[]>("http://localhost:9090/paark/is_notApprovedProducts");
   }
 
-  viewproducts():Observable<Product[]>{
+  is_approveproducts():Observable<Product[]>{
     return this.http.get<Product[]>("http://localhost:9090/paark/viewproducts");
   }
 
   
- 
 
 }

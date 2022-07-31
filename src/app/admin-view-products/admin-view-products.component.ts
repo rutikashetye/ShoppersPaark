@@ -11,36 +11,33 @@ import { RetailerService } from '../retailer.service';
   styleUrls: ['./admin-view-products.component.css']
 })
 export class AdminViewProductsComponent implements OnInit {
-  product:any;
-  id:number;
+  product: any;
+  id: number;
   p: Product = new Product;
 
-  constructor(private rservice:RetailerService, private pservice:ProductService) { }
+  constructor(private rservice: RetailerService, private pservice: ProductService) { }
 
   ngOnInit(): void {
-    this.rservice.viewproducts().subscribe(
-      data=>{
-        this.product=data;
+    this.rservice.is_approveproducts().subscribe(
+      data => {
+        this.product = data;
       }
     )
   }
-udProduct(productId:number){
-this.id=productId;
-this.pservice.getProductByProductId(this.id).subscribe(
-  obj => {
-    this.p = obj;
+
+  udProduct(productId: number) {
+    this.id = productId;
+    this.pservice.getProductByProductId(this.id).subscribe(
+      obj => {
+        this.p = obj;
+      }
+    );
   }
-);
-}
-update(){
-  this.pservice.createOrUpdateProduct(this.p).subscribe(
-    obj=>{
-      console.log(obj)
-    }
-  )
-
-
-}
-
-
+  update() {
+    this.pservice.createOrUpdateProduct(this.p).subscribe(
+      obj => {
+        console.log(obj)
+      }
+    )
+  }
 }

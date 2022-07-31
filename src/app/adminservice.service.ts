@@ -9,18 +9,26 @@ import { Retailer } from './retailer';
 })
 export class AdminService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  loginAdmin(admin:Admin):Observable<boolean>{
-    
-    return this.http.post<boolean>("http://localhost:9090/paark/admin-login",admin);
-    }
+  loginAdmin(admin: Admin): Observable<boolean> {
+    return this.http.post<boolean>("http://localhost:9090/paark/admin-login", admin);
+  }
 
-    viewretailer():Observable<Retailer[]>{
-      return this.http.get<Retailer[]>("http://localhost:9090/paark/viewAllRetailers");
-    }
-    approveProducts(id:number):Observable<string>{
-      return this.http.post<string>("http://localhost:9090/paark/approveproduct/"+id,{responseType:'text'});
-    }
+  approveProducts(id: number): Observable<string> {
+    return this.http.post<string>("http://localhost:9090/paark/approveproduct/" + id, { responseType: 'text' });
+  }
+
+  approveRetailer(id: number): Observable<string> {
+    return this.http.post<string>("http://localhost:9090/paark/approveretailer/" + id, { responseType: 'text' });
+  }
+
+  is_not_ApprovedRetailer(): Observable<Retailer[]> {
+    return this.http.get<Retailer[]>("http://localhost:9090/paark/is_notApprovedRetailer");
+  }
+
+  is_approvedRetailer():Observable<Retailer[]>{
+    return this.http.get<Retailer[]>("http://localhost:9090/paark/viewretailers");
+  }
 
 }

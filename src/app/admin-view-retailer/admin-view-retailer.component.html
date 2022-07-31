@@ -1,0 +1,41 @@
+<div class="card mb-3 shadow-lg p-1 bg-body rounded" style="height:auto; margin-right: 10px; ">
+    <h5 class="text-center"> Retailer Details</h5>
+    <table class="table bg-white">
+        <thead class="bg-light">
+            <tr>
+                <th>RetailerId</th>
+                <th>Retailer Name</th>
+                <th>Email</th>
+                <th>Phone No</th>
+                <th>GST / PAN</th>
+                <th>AadharCard</th>
+                <th>Pan Card</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let c of retailer">
+                <td>
+                    {{c.retailerId}}
+                </td>
+                <td>
+                    {{c.retailerName}}
+                </td>
+                <td>
+                    {{c.retailerEmail}}
+                </td>
+                <td>
+                    {{c.retailerPhoneNo}}
+                </td>
+                <td>
+                    {{c.gstNo}}
+                </td>
+                <td>
+                   <a href="{{c.aadharCard}}">AadharCard</a>
+                </td>
+                <td>
+                    <a href="{{c.panCard}}">Pan Card</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

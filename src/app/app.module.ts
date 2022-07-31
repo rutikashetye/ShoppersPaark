@@ -27,6 +27,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AdminViewProductsComponent } from './admin-view-products/admin-view-products.component';
 import { AdminApproveProductsComponent } from './admin-approve-products/admin-approve-products.component';
 import { AddProductComponent } from './add-product/add-product.component';
+import { AdminViewRetailerComponent } from './admin-view-retailer/admin-view-retailer.component';
+import { AdminApproveRetailerComponent } from './admin-approve-retailer/admin-approve-retailer.component';
 
 
 @NgModule({
@@ -53,7 +55,9 @@ import { AddProductComponent } from './add-product/add-product.component';
     RetailerDashComponent,
     AdminViewProductsComponent,
     AdminApproveProductsComponent,
-    AddProductComponent
+    AddProductComponent,
+    AdminViewRetailerComponent,
+    AdminApproveRetailerComponent
   ],
   imports: [
     BrowserModule,

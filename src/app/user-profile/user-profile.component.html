@@ -1,18 +1,19 @@
 <div class="card mb-3 shadow-lg p-4 mb-4 bg-body rounded" >
     <h5 class="card-title">User Profile</h5>
     <hr>
+    <form #updateProfile="ngForm" (ngSubmit)="upProfile()">
     <div class="row">
       <div class="col">
           <div class="form-floating mb-3">
               <input type="text" class="form-control" id="floatingInput" placeholder="Full Name"
-                  name="name" value="Rutika Shetye">
+                  name="name" [(ngModel)]="user.userId">
               <label for="floatingInput">Full Name</label>
           </div>
       </div>
       <div class="col">
           <div class="form-floating">
               <input type="email" class="form-control" id="floatingPassword"
-                  placeholder="Email" name="email" value="rutikashetye101@gmail.com">
+                  placeholder="Email" name="email" [(ngModel)]="user.email">
               <label for="floatingPassword">Email</label>
           </div>
       </div>
@@ -22,14 +23,14 @@
     <div class="col">
         <div class="form-floating mb-3">
             <input type="password" class="form-control" id="floatingInput" placeholder="Password"
-                name="password" value="******">
+                name="password" [(ngModel)]="user.password">
             <label for="floatingInput">Password</label>
         </div>
     </div>
     <div class="col">
         <div class="form-floating">
             <input type="text" class="form-control" id="floatingPassword"
-                placeholder="Phone No" name="phoneNo" value="91-9969802006">
+                placeholder="Phone No" name="phoneNo" [(ngModel)]="user.phoneNo">
             <label for="floatingPassword">Phone No</label>
         </div>
     </div>
@@ -38,4 +39,5 @@
 <div style="float:right;">
   <input class="btn btn-primary" type="submit" value="Save Changes">
 </div>
+</form>
 </div>

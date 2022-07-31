@@ -1,0 +1,37 @@
+<div class="card mb-3 shadow-lg p-1 bg-body rounded" style="height:auto; margin-right: 10px; ">
+    <h5 class="text-center"> Retailer Details</h5>
+    <table class="table align-middle mb-0 bg-white">
+        <thead class="bg-light">
+            <tr>
+                <th>RetailerId</th>
+                <th>Retailer Name</th>
+                <th>Email</th>
+                <th>Phone No</th>
+                <th>GST / PAN</th>
+                <th>Documents</th>
+                <th>Approve</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let c of retailer">
+                <td>{{c.retailerId}}</td>
+                <td>{{c.retailerName}}</td>
+                <td>{{c.retailerEmail}}</td>
+                <td>{{c.retailerPhoneNo}}</td>
+                <td>{{c.gstNo}}</td>
+                <td>
+                    <div class="ms-3">
+                        <p class="fw-bold mb-1"><a href="{{c.aadharCard}}">AadharCard</a></p>
+                        <p class="fw-bold mb-0"><a href="{{c.panCard}}">Pan Card</a></p>
+                    </div>
+                </td>
+                <td>
+                    <button type="submit" (click)="ApproveRetailer(c.retailerId)"
+                        class="btn btn-outline-success">Approve</button>
+                </td>
+                <td><button type="button" class="btn btn-outline-primary">Reject</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

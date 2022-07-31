@@ -29,23 +29,23 @@
                     </td>
                     <td>
                         <div class="ms-1">
-                            <input type="text" class="form-control" name="productId" [(ngModel)]="c.productId"> 
+                            {{c.productId}}
                         </div>
                     </td>
                     <td>
-                        <input type="text" class="form-control" name="category" [(ngModel)]="c.category"> 
+                       {{c.category}}
                        </td>
                     <td>
-                        <input type="text" class="form-control" name="deal" [(ngModel)]="c.deal"> 
+                        {{c.deal}} 
                     </td>
                     <td>
-                        <input type="text" class="form-control" name="retailer"  [(ngModel)]="c.retailer.retailerId"> 
+                        {{c.retailer.retailerId}} 
                     </td>
                     <td>
-                        <input type="text" class="form-control" [(ngModel)]="c.price" name="price" > 
+                        {{c.price}} 
                     </td>
                     <td>
-                        <input type="text" class="form-control" [(ngModel)]="c.available_quantity" name="available_quantity" > 
+                       {{c.available_quantity}}
                        </td>
                     <td><button type="submit" class="btn btn-primary" (click)="udProduct(c.productId)" data-bs-toggle="modal" data-bs-target="#exampleModal">Update</button></td>
                 </tr> 
@@ -64,12 +64,51 @@
          <form #uproduct="ngForm" (ngSubmit)="update()">
             <div class="row">
                 <div class="col">
-                    <input type="text" class="form-control" name="productName" >
+                    <label>Product Name :</label>
+                </div>  
+                <div class="col">
+                    <input type="text" class="form-control" name="productName" [(ngModel)]="p.productName">
+                </div>
+            </div> 
+            <div class="row">
+                <div class="col">
+                    <label>Product Description :</label>
                 </div>
                 <div class="col">
-                    <input type="text" class="form-control" name="description" >
+                    <input type="text" class="form-control" name="description" [(ngModel)]="p.description">
+                </div> 
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label>Product Category :</label>
                 </div>
-                
+                <div class="col">
+                    <input type="text" class="form-control" name="category" [(ngModel)]="p.category">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label>Discount % :</label>
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" name="deal" [(ngModel)]="p.deal">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label>Product Price :</label>
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" name="price" [(ngModel)]="p.price">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label>Available Quantity :</label>
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" name="available_quantity" [(ngModel)]="p.available_quantity">
+                </div>  
             </div>
          </form>
         </div>

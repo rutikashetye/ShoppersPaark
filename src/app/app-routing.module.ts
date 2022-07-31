@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminApproveProductsComponent } from './admin-approve-products/admin-approve-products.component';
+import { AdminApproveRetailerComponent } from './admin-approve-retailer/admin-approve-retailer.component';
 import { AdminDashComponent } from './admin-dash/admin-dash.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminViewProductsComponent } from './admin-view-products/admin-view-products.component';
+import { AdminViewRetailerComponent } from './admin-view-retailer/admin-view-retailer.component';
 import { HomeComponent } from './home/home.component';
 import { MyordersComponent } from './myorders/myorders.component';
 import { ProductSpecificComponent } from './product-specific/product-specific.component';
@@ -46,6 +48,8 @@ const routes: Routes = [
   children:[
     {path:'viewproducts', component:AdminViewProductsComponent},
     {path:'approveproducts', component:AdminApproveProductsComponent},
+    {path:'viewretailer', component:AdminViewRetailerComponent},
+    {path:'approveretailer', component:AdminApproveRetailerComponent},
 
   ]},
   
