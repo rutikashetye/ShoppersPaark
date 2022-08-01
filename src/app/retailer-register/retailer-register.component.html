@@ -20,14 +20,12 @@
                     <div *ngIf="em.errors?.['required']" style="color:black;">Enter Email</div>
                     <div *ngIf="em.errors?.['pattern']" style="color:black;">Invalid Email</div>
                   </div><br/>
-                <input type="password"  class="form-control" #retailerpass=ngModel name="retailerPassword" [(ngModel)]="retailer.retailerPassword" placeholder="enter your password here" required  pattern="(?=.\d)(?=.[a-z])(?=.*[A-Z]).{8,}"/>
+                <input type="password"  class="form-control" #retailerpass=ngModel name="retailerPassword" [(ngModel)]="retailer.retailerPassword" placeholder="enter your password here" required  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"/>
                 <div *ngIf="retailerpass.invalid &&(retailerpass.dirty||retailerpass.touched)">
                     <div *ngIf="retailerpass.errors?.['required']" style="color:black;">Please Enter password</div>
                     <div *ngIf="retailerpass.errors?.['pattern']" style="color:black;">"Please enter strong password</div>
                   </div><br/>
                 <input type="password"  class="form-control" #retailerpassconfirm=ngModel name="retailerConfirmPassword" [(ngModel)]="retailer.confirmPassword" placeholder="Confirm your password here" required   pattern="{{ retailerpass.value }}"/><br/>
-                <!-- <div *ngIf=" retailerpassconfirm.invalid && retailerpassconfirm.touched)" class="alert alert-danger"> -->
-                    <!-- <div *ngIf="retailerpassconfirm.errors.required"> Confirm password is required. </div> -->
                     <div *ngIf="retailerpassconfirm.errors?.['pattern']"> Password & Confirm Password does not match.</div>
 
                 <input type="tel" #mob=ngModel class="form-control" name="retailerPhoneNo" [(ngModel)]="retailer.retailerPhoneNo" placeholder="enter your mobile here" required 
