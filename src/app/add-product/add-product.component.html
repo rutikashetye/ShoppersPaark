@@ -1,17 +1,17 @@
 <div class="card mb-3 shadow-lg p-4 mb-4 bg-body rounded">
-  <h5 class="card-title">User Profile</h5>
+  <h5 class="card-title">Add Product</h5>
   <hr>
-  <!-- <form #addproduct="ngForm" (ngSubmit)=""> -->
+  <form #addProductForm="ngForm" (ngSubmit)="addProductToProductTable()">
   <div class="row">
     <div class="col">
       <div class="form-floating mb-3">
-        <!-- <input type="text" class="form-control" id="floatingInput" placeholder="Product Name"  [(ngModel)]="" name="name"> -->
+        <input type="text" class="form-control" #productName=ngModel id="floatingInput" placeholder="Product Name" name="name" [(ngModel)]="product.productName">
         <label for="floatingInput">Product Name</label>
       </div>
     </div>
     <div class="col">
       <div class="form-floating">
-        <input type="email" class="form-control" id="floatingPassword" placeholder="Brand" name="brand">
+        <input type="email" class="form-control" #brand=ngModel id="floatingPassword" placeholder="Brand" name="brand" [(ngModel)]="product.brand">
         <label for="floatingPassword">Brand</label>
       </div>
     </div>
@@ -20,34 +20,34 @@
   <div class="row">
     <div class="col">
       <div class="form-floating mb-3">
-        <input type="number" class="form-control" id="floatingInput" placeholder="Price" name="price">
+        <input type="number" class="form-control" #price=ngModel id="floatingInput" placeholder="Price" name="price" [(ngModel)]="product.price">
         <label for="floatingInput">₹ Price</label>
       </div>
     </div>
     <div class="col">
       <div class="form-floating">
-        <input type="number" class="form-control" id="floatingPassword" placeholder="Discount" name="deal">
+        <input type="number" class="form-control" #deal=ngModel id="floatingPassword" placeholder="Discount" name="deal" [(ngModel)]="product.deal">
         <label for="floatingPassword">Discount %</label>
       </div>
     </div>
     <div class="col">
       <div class="form-floating">
-        <input type="number" class="form-control" id="floatingPassword" placeholder="Avaiable Quantity"
-          name="availableQuantity">
+        <input type="number" class="form-control" #discountedPrice=ngModel id="floatingPassword" placeholder="Discount" name="deal" [(ngModel)]="product.discountedPrice">
+        <label for="floatingPassword">Final price</label>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-floating">
+        <input type="number" class="form-control" #available_quantity=ngModel id="floatingPassword" placeholder="Quantity"
+          name="availableQuantity" [(ngModel)]="product.available_quantity">
         <label for="floatingPassword">Avaiable Quantity</label>
       </div>
     </div>
   </div>
   <div class="row ">
     <div class="col">
-      <div class="input-group mb-3">
-        <input type="file" class="form-control" id="inputGroupFile02" name="productImage">
-        <label class="input-group-text" for="inputGroupFile02">Upload</label>
-      </div>
-    </div>
-    <div class="col">
-      <select class="form-select form-select mb-3" aria-label=".form-select-lg example" name="category">
-        <option selected value="null">--Select Category-</option>
+      <select class="form-select form-select mb-4" #category=ngModel aria-label=".form-select-lg example" name="category" [(ngModel)]="product.category">
+        <option selected value="null">Select Category</option>
         <option value="mobile">Mobile</option>
         <option value="men">Men</option>
         <option value="women">Women</option>
@@ -57,27 +57,39 @@
         <option value="appliances">Appliances</option>
       </select>
     </div>
-    </div>
-    <div class="row">
       <div class="col">
         <div class="form-floating">
-          <textarea type="text" class="form-control" placeholder="Enter Product Description" required
-            name="description"></textarea>
+          <textarea type="text" class="form-control" #description=ngModel placeholder="Enter Product Description" required
+            name="description" [(ngModel)]="product.description"></textarea>
           <label for="floatingPassword">Description</label>
         </div>
       </div>
-
-      <div class="col">
+    <div class="col">
         <div class="form-floating">
-          <input type="number" class="form-control" id="floatingPassword" placeholder="Color" name="color">
+          <input type="text" class="form-control" #color=ngModel id="floatingPassword" placeholder="Color" name="color" [(ngModel)]="product.color">
           <label for="floatingPassword">Color</label>
         </div>
       </div>
     </div>
     <hr>
     <div style="float:right;">
-      <input class="btn btn-primary" type="submit" value="Save Changes">
+      <input class="btn btn-primary" type="submit" value="Add Product">
     </div>
- <!-- </form> -->
- </div>
 
+  </form>
+  <!-- <form #addproductImage="ngForm" (ngSubmit)="upload3()">
+    <div class="col">
+      <div class="input-group mb-2">
+        <input type="file" class="form-control" #productImage=ngModel id="inputGroupFile02" name="productImage" [(ngModel)]="product.productImage">
+        <label class="input-group-text" for="inputGroupFile02">Upload</label>
+      </div>
+    </div>
+    </form> -->
+    <form  #addProductPic="ngForm" enctype="multipart/form-data" (ngSubmit)="upload3()"  (ngSubmit)="validate3()" >
+      <div class=>
+      <input type="file" class="form-control"  name="ap" (change)="onFileChange($event)" required #productImage:ngModel/><br/><br/>
+  <button type="submit" class="btn btn-primary"  [disabled]=addProductPic.invalid>upload</button>
+    </div>  
+    </form>
+ 
+ </div>

@@ -42,6 +42,13 @@
                 </h2>
             </div>
             <div class="row">
+                <div class="btn-group mr-2" role="group">
+                    <button type="button" class="btn btn-outline-secondary" (click)="dec()">-</button>
+                    <button type="button" class="btn btn-outline-secondary">{{num}}</button>
+                    <button type="button" class="btn btn-outline-secondary" (click)="inc()">+</button>
+                </div>
+            </div>
+            <div class="row">
                 <h6 class="text-muted"><img src="https://img.icons8.com/material/24/ffab00/marker--v1.png" />Deliver to
                 </h6>
             </div>
@@ -66,13 +73,14 @@
             <div class="row">
                 <div class="col-3">
                     <button type="button " class="text-white btn p-3 " style="background-color:#ffab00;width:100%;"
-                        name="addToCart">
+                        name="addToCart" (click)="AddToCart(p.productId)">
                         <img src="https://img.icons8.com/ios-glyphs/25/ffffff/shopping-cart--v1.png" />&nbsp;
                         <b>Add to Cart</b></button>
                 </div>
                 <div class="col-3">
-                    <button type="button" class="text-white btn p-3 " style="background-color:#ff6d00;width:100%;"
-                        name="buyNow" data-bs-toggle="modal" data-bs-target="#Buynow">
+                    <button type="submit" class="text-white btn p-3 " style="background-color:#ff6d00;width:100%;"
+                        name="buyNow" 
+                         data-bs-toggle="modal" data-bs-target="#Buynow">
                         <img src="https://img.icons8.com/fluency-systems-filled/25/ffffff/lightning-bolt.png" />&nbsp;
                         <b>Buy Now</b></button>
                 </div>
@@ -92,11 +100,6 @@
                 </div>
                 <form class="form" role="form" autocomplete="off">
                     <div class="modal-body">
-                        <div class="alert alert-info p-2 pb-3">
-                            <a class="close font-weight-normal initialism" data-dismiss="alert"
-                                href="#"><samp>×</samp></a>
-                            CVC code is required.
-                        </div>
                         <div class="form-group">
                             <label for="cc_name">Card Holder's Name</label>
                             <input type="text" class="form-control" id="cc_name" pattern="\w+ \w+.*"

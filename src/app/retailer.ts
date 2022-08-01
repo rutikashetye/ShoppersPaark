@@ -8,4 +8,7 @@ export class Retailer {
 	panCard:string;
 	isRetailerApproved:boolean;
 	gstNo:string;
+    confirmPassword:string;
+ 
+
 }

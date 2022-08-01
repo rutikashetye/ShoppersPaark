@@ -1,4 +1,3 @@
-
 <div class="container bg shadow-lg mb-5 rounded">
     <div class="row g-0">
         <div class="col-md-5 text-white p-3" style="background: #302b63">
@@ -9,82 +8,74 @@
         </div>
         <div class="col p-5">
             <form #signUpForm="ngForm" (ngSubmit)="userSignup()">
-            <div class="row ">
-                <div class="col">
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="Full Name" required ngModel name="name" 
-                        #name="ngModel" [(ngModel)]="user.name" >
-                        <label for="floatingInput">Full Name</label>
-                    </div>
-                    <div class="alert alert-danger" *ngIf="(name.dirty || name.touched) && name.invalid">
-                        Please enter your name.
-                    </div>
-                </div>
-                <div class="col">
-                    <!-- <select class="form-select" id="floatingSelectGrid"
-                            aria-label="Floating label select example"
-                            (change)="selectOption($any($event.target).value)" 
-                            required ngModel #gender="ngModel" [(ngModel)]="user.gender">
-                            <option disabled selected value [ngValue]="null"> -- Select State -- </option>
-                            <option [value]="item.id" *ngFor="let item of items">{{item.name}}</option>
-                            </select>
-                            <label for="floatingSelectGrid">Gender</label> -->
-                    <div class="form-floating">
-                        <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example" name="gender" required ngModel
-                        #gender="ngModel" [(ngModel)]="user.gender">
-                          <option selected value="null">--Select Gender-</option>
-                          <option value="Male">Male </option>
-                          <option value="Female">Female</option>
-                          <option value="Other">Other</option>
-                        </select>
-                        <label for="floatingSelectGrid">Gender</label>
+                <div class="row ">
+                    <div class="col">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingInput" placeholder="Full Name" required
+                                ngModel name="name" #name="ngModel" [(ngModel)]="user.userName">
+                            <label for="floatingInput">Full Name</label>
                         </div>
+                        <div class="alert alert-danger" *ngIf="(name.dirty || name.touched) && name.invalid">
+                            Please enter your name.
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-floating">
+                            <select class="form-select" id="floatingSelectGrid"aria-label="Floating label select example" name="gender" required ngModel #gender="ngModel" [(ngModel)]="user.gender">
+                                <option selected value="null">--Select Gender-</option>
+                                <option value="male">Male </option>
+                                <option value="female">Female</option>
+                            </select>
+                            <label for="floatingSelectGrid">Gender</label>
+                        </div>
+                    </div>
+                    <div class="alert alert-danger" *ngIf="(gender.dirty || gender.touched) && gender.invalid">
+                        Please enter Gender.
+                    </div>
                 </div>
-                <div class="alert alert-danger" *ngIf="(gender.dirty || gender.touched) && gender.invalid">
-                    Please enter Gender.
+                <div class="row ">
+                    <div class="form-floating p-2 mb-3">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="Email"[(ngModel)]="user.userEmail" required ngModel name="email" #email="ngModel">
+                        <label for="floatingInput">Email</label>
+                    </div>
+                    <div class="alert alert-danger" *ngIf="(email.dirty || email.touched) && email.invalid">
+                        Please enter Email.
+                    </div>
                 </div>
-            </div>
-            <div class="row ">
-                <div class="form-floating p-2 mb-3">
-                    <input type="text" class="form-control" id="floatingInput"
-                        placeholder="Email" [(ngModel)]="user.email" required ngModel name="email" 
-                        #email="ngModel" >
-                    <label for="floatingInput">Email</label>
-                </div>
-                <div class="alert alert-danger" *ngIf="(email.dirty || email.touched) && email.invalid">
-                    Please enter Email.
-                </div>
-            </div>
-            <div class="row ">
-              <div class="col">
-                  <div class="form-floating mb-3">
-                      <input type="text" class="form-control" id="floatingPassword" placeholder="Password" required ngModel name="password" 
-                      #password="ngModel" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                      [(ngModel)]="user.password">
-                      <label for="floatingPassword">Password</label>
-                  </div>
-                  <div class="alert alert-danger" *ngIf="password.invalid && (password.dirty || password.touched)">
-                    <div *ngIf="password.errors?.['required']">Enter password</div>
-                    <div *ngIf="password.errors?.['pattern']">Invalid password.(Please ensure that your password must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters )</div>
-                </div>
-              </div>
-              <div class="col">
-                  <div class="form-floating">
-                      <input type="number" class="form-control" id="floatingInput"
-                          placeholder="Phone No" [(ngModel)]="user.phoneNo" required ngModel name="phoneNo" 
-                          #phoneNo="ngModel">
-                      <label for="floatingInput">Phone No</label>
-                  </div>
-                  <div class="alert alert-danger" *ngIf="(phoneNo.dirty || phoneNo.touched) && phoneNo.invalid">
-                    Please enter phoneNo.
-                </div>
-              </div>
+                <div class="row ">
+                    <div class="col">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingPassword" placeholder="Password"
+                                required ngModel name="password" #password="ngModel"
+                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" [(ngModel)]="user.password">
+                            <label for="floatingPassword">Password</label>
+                        </div>
+                        <div class="alert alert-danger"
+                            *ngIf="password.invalid && (password.dirty || password.touched)">
+                            <div *ngIf="password.errors?.['required']">Enter password</div>
+                            <div *ngIf="password.errors?.['pattern']">Invalid password.(Please ensure that your password
+                                must contain at least one number and one uppercase and lowercase letter, and at least 8
+                                or more characters )</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-floating">
+                            <input type="number" class="form-control" id="floatingInput" placeholder="Phone No"
+                                [(ngModel)]="user.phoneNo" required ngModel name="phoneNo" #phoneNo="ngModel">
+                            <label for="floatingInput">Phone No</label>
+                        </div>
+                        <div class="alert alert-danger" *ngIf="(phoneNo.dirty || phoneNo.touched) && phoneNo.invalid">
+                            Please enter phoneNo.
+                        </div>
+                    </div>
 
-          </div>
-            <button type="submit" class="btn p-2 text-white" style="width:100%;font-size:20px; background-color:#ffab00;" regForm.valid
-            name="signup"><b>Signup</b></button>
-            <b style="width:100%;font-size:15px; color: #0091ea;">Existing User?  <a class="btn btn-light p-2" [routerLink]="['/login']"> Log in </a></b>
-        </form>
+                </div>
+                <button type="submit" class="btn p-2 text-white"
+                    style="width:100%;font-size:20px; background-color:#ffab00;" name="signup"><b>Signup</b></button>
+                <b style="width:100%;font-size:15px; color: #0091ea;">Existing User? <a class="btn btn-light p-2"
+                        [routerLink]="['/login']"> Log in </a></b>
+            </form>
         </div>
     </div>
 </div>
+

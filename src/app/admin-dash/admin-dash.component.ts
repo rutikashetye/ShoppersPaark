@@ -13,10 +13,11 @@ export class AdminDashComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    if(!sessionStorage.getItem("adminDetails"))
     this.route.paramMap.subscribe(params => {
       this.aid = +params.get('id');
-    }
+      if(!sessionStorage.getItem("adminDetails"))
+      {this.router.navigate(['/home']);  }
+      }
     );
   }
 

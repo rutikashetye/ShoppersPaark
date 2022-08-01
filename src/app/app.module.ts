@@ -29,6 +29,7 @@ import { AdminApproveProductsComponent } from './admin-approve-products/admin-ap
 import { AddProductComponent } from './add-product/add-product.component';
 import { AdminViewRetailerComponent } from './admin-view-retailer/admin-view-retailer.component';
 import { AdminApproveRetailerComponent } from './admin-approve-retailer/admin-approve-retailer.component';
+import { RetailerRegisterComponent } from './retailer-register/retailer-register.component';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { AdminApproveRetailerComponent } from './admin-approve-retailer/admin-ap
     AdminApproveProductsComponent,
     AddProductComponent,
     AdminViewRetailerComponent,
-    AdminApproveRetailerComponent
+    AdminApproveRetailerComponent,
+    RetailerRegisterComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddProductComponent } from './add-product/add-product.component';
 import { AdminApproveProductsComponent } from './admin-approve-products/admin-approve-products.component';
 import { AdminApproveRetailerComponent } from './admin-approve-retailer/admin-approve-retailer.component';
 import { AdminDashComponent } from './admin-dash/admin-dash.component';
@@ -10,7 +11,9 @@ import { HomeComponent } from './home/home.component';
 import { MyordersComponent } from './myorders/myorders.component';
 import { ProductSpecificComponent } from './product-specific/product-specific.component';
 import { ProductComponent } from './product/product.component';
+import { RetailerDashComponent } from './retailer-dash/retailer-dash.component';
 import { RetailerLoginComponent } from './retailer-login/retailer-login.component';
+import { RetailerRegisterComponent } from './retailer-register/retailer-register.component';
 import { ShippingAddressComponent } from './shipping-address/shipping-address.component';
 import { UserDashComponent } from './user-dash/user-dash.component';
 import { UserLoginComponent } from './user-login/user-login.component';
@@ -40,8 +43,12 @@ const routes: Routes = [
   {path:'signup', component:UserSignupComponent},
 
   {path:'retailer-login', component:RetailerLoginComponent},
-
-
+  {path:'retailer-signup', component:RetailerRegisterComponent},
+  {path:'retailer-dash/:id', component:RetailerDashComponent,
+    children:[
+      {path:'add-product', component:AddProductComponent},
+    ]
+   },
   // Admin dashboard
   {path:'admin-login', component:AdminLoginComponent},
   {path:'admin-dash/:id', component:AdminDashComponent,

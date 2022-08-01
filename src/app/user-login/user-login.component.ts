@@ -26,7 +26,7 @@ export class UserLoginComponent implements OnInit {
           this.isValid = msg;
           if (this.isValid) {
                   sessionStorage.setItem("userDetails",JSON.stringify(this.us.userId));
-                  this.route.navigate(['/user-dash']);
+                  this.route.navigate(['/user-dash',this.us.userId]);
                 }
                 else {
                   this.message = "Login Failed.";
