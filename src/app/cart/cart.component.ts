@@ -7,6 +7,7 @@ import { Retailer } from '../retailer';
 import { User } from '../user';
 import { UserService } from '../user.service';
 
+
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',

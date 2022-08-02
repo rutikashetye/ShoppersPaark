@@ -38,7 +38,7 @@ export class AdminApproveProductsComponent implements OnInit {
       }    
       
     );
-    location.reload();
+    // location.reload();
     // location.reload();
     // this.router.navigate(['admin-dash/'+JSON.parse(sessionStorage.getItem("adminDetails"))+'/viewproducts']);
   }

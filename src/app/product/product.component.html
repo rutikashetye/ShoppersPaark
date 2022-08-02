@@ -78,7 +78,7 @@
                 <!-- end of sort by -->
                 <!-- start of products -->
                 <div class="row">
-                    <div class="col-4" *ngFor="let c of product">
+                    <div class="col-3" *ngFor="let c of product">
                         <div class="card p-3 mb-5 bg-white rounded my-lst" [routerLink]="['/product',c.productId]">
                             <div class="row d-flex justify-content-center">
                                 <img src="http://localhost:9090/downloads/{{c.productImage}}" class="img-fluid"
