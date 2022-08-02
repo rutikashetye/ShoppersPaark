@@ -33,4 +33,14 @@ export class AdminService {
   retailerProfile(rid:number){
     return this.http.get("http://localhost:9090/paark/profile?retailerId="+rid);
   }
+
+
+  rejectProducts(id: number){
+    return this.http.delete("http://localhost:9090/paark/rejectProduct/" + id, { responseType: 'text' });
+  }
+  rejectRetailer(id: number){
+    return this.http.delete("http://localhost:9090/paark/rejectRetailer/" + id, { responseType: 'text' });
+  }
+
+
 }

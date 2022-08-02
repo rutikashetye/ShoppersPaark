@@ -1,11 +1,6 @@
 <div class="container justify-content-center align-text-center p-2" style="background-color: white">
     <div class="row g-0">
         <div class="col-md-4 ">
-            <div class="position-relative top-0 end-0 p-1">
-                <button class="btn" type="submit" style="border-radius: 100px;">
-                    <img src="https://img.icons8.com/ios-filled/40/b0bec5/like--v1.png" />
-                </button>
-            </div>
             <div class="row d-flex justify-content-center">
                 <img src="http://localhost:9090/downloads/{{p.productImage}}" class="img-fluid" alt="..."
                     style="width:700px;height:500px;">
@@ -81,12 +76,12 @@
                         <img src="https://img.icons8.com/ios-glyphs/25/ffffff/shopping-cart--v1.png" />&nbsp;
                         <b>Add to Cart</b></button>
                 </div>
-                <div class="col-3">
+                <!-- <div class="col-3">
                     <button type="submit" class="text-white btn p-3 " style="background-color:#ff6d00;width:100%;"
                         name="buyNow" data-bs-toggle="modal" data-bs-target="#Buynow">
                         <img src="https://img.icons8.com/fluency-systems-filled/25/ffffff/lightning-bolt.png" />&nbsp;
                         <b>Buy Now</b></button>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -185,7 +180,7 @@
     <div class="card mb-3 shadow-lg p-3 bg-body rounded" style="height:auto; ">
         <h4>Similar Products</h4>
         <div class="position-absolute top-0 end-0 p-3">
-            <button class="btn btn-primary p-2" type="submit">
+            <button class="btn btn-primary p-2" type="submit" [routerLink]="['/products',p.category]" >
                 VIEW ALL
             </button>
         </div>
@@ -193,11 +188,6 @@
         <div class="row">
             <div class="col">
                 <div class="card p-3 mb-5 bg-white rounded my-lst">
-                    <div class="position-absolute top-0 end-0 p-1">
-                        <button class="btn" type="submit">
-                            <img src="https://img.icons8.com/ios-filled/24/b0bec5/like--v1.png" />
-                        </button>
-                    </div>
                     <div class="row d-flex justify-content-center">
                         <img src="./assets/images/HomeProducts/samsung.png" class="img-fluid" alt="..."
                             style="width:150px;height:200px;">

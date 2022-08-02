@@ -1,22 +1,24 @@
 <div class="container justify-content-center align-text-center p-2">
     <div class="row g-0">
-        <div class="col-md-3 ">
+        <!-- <div class="col-md-3 ">
             <div class="card mb-3 shadow-lg p-3 bg-body rounded" style="height:auto; margin-right: 10px; ">
                 <h4 class="text-muted ">Filters</h4>
                 <hr style="color:lightgrey ;">
                 <ul class="nav flex-column" style="font-size: 18px;">
                     <li class="nav-item">
                         <a class="nav-link text-muted p-3" data-bs-toggle="collapse" href="#colordrp" role="button"
-                            aria-expanded="false" aria-controls="collapseExample" >
+                            aria-expanded="false" aria-controls="collapseExample">
                             <img src="https://img.icons8.com/ios/18/4b636e/expand-arrow--v1.png" /> Colors
                         </a>
+
                         <div class="collapse" id="colordrp">
                             <div class="card card-body">
                                 <ul class="nav flex-column p-2">
                                     <li class="nav-item" *ngFor="let l of colorlist">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="">
-                                               {{l}}
+                                       
+                                            <input class="form-check-input" type="checkbox">
+                                            {{l}}
                                         </div>
                                     </li>
                                 </ul>
@@ -48,22 +50,22 @@
                             </div>
                         </div>
                     </li>
-                   </ul>
+                </ul>
             </div>
-        </div>
+        </div> -->
 
         <!-- products- start -->
-        <div class="col-md-9">
+        <!-- <div class="col-md-9"> -->
             <div class="card mb-3 shadow-lg p-3 bg-body rounded" style="height:auto; ">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a [routerLink]="['/home']">Home</a></li>
-                        <li class="breadcrumb-item active uppercase" >{{cat}}</li>
+                        <li class="breadcrumb-item active uppercase">{{cat}}</li>
                     </ol>
                 </nav>
                 <!-- end of breadcrumb -->
                 <!-- Start of sort by -->
-                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
                         <div class="container-fluid">
                             <div class="navbar-nav">
                                 <a class="nav-link" style="color: black;">Sort By </a>
@@ -72,20 +74,15 @@
                                 <a class="nav-link sortby" (click)="sortbyhigh()">Price--High to Low</a>
                             </div>
                         </div>
-                </nav>
+                </nav> -->
                 <!-- end of sort by -->
                 <!-- start of products -->
-                <div class="row" >
+                <div class="row">
                     <div class="col-4" *ngFor="let c of product">
                         <div class="card p-3 mb-5 bg-white rounded my-lst" [routerLink]="['/product',c.productId]">
-                            <div class="position-absolute top-0 end-0 p-1">
-                                <button class="btn" type="submit">
-                                    <img src="https://img.icons8.com/ios-filled/24/b0bec5/like--v1.png" />
-                                </button>
-                            </div>
                             <div class="row d-flex justify-content-center">
-                                <img src="http://localhost:9090/downloads/{{c.productImage}}" class="img-fluid" alt="..."
-                                    style="width:150px;height:200px;">
+                                <img src="http://localhost:9090/downloads/{{c.productImage}}" class="img-fluid"
+                                    alt="..." style="width:150px;height:200px;">
                             </div>
                             <div class="row">
                                 <h5>{{c.brand}}</h5>
@@ -111,4 +108,4 @@
         </div>
         <!-- products - end -->
 
-    </div>
+    <!-- </div> -->

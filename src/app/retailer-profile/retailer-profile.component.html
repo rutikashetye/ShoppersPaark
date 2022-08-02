@@ -1,19 +1,19 @@
 <div class="card mb-3 shadow-lg p-4 mb-4 bg-body rounded" >
-    <h5 class="card-title">User Profile</h5>
+    <h5 class="card-title">Retailer Profile</h5>
     <hr>
     <form #updateProfile="ngForm" (ngSubmit)="upProfile()">
     <div class="row">
       <div class="col">
           <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="floatingInput" placeholder="Full Name" disabled="true"
-                  name="name" [(ngModel)]="user.userName">
+              <input type="text" class="form-control" id="floatingInput" disabled="true"placeholder="Full Name"
+                  name="name" [(ngModel)]="reg.retailerName">
               <label for="floatingInput">Full Name</label>
           </div>
       </div>
       <div class="col">
           <div class="form-floating">
-              <input type="email" class="form-control" id="floatingPassword" disabled="true"
-                  placeholder="Email" name="email" [(ngModel)]="user.userEmail">
+              <input type="email" class="form-control"disabled="true" id="floatingPassword"
+                  placeholder="Email" name="email" [(ngModel)]="reg.retailerEmail">
               <label for="floatingPassword">Email</label>
           </div>
       </div>
@@ -22,15 +22,15 @@
   <div class="row">
     <div class="col">
         <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="floatingInput"disabled="true" placeholder="Password"
-                name="password" [(ngModel)]="user.password">
+            <input type="password" class="form-control" disabled="true" id="floatingInput" placeholder="Password"
+                name="password" [(ngModel)]="reg.retailerPassword">
             <label for="floatingInput">Password</label>
         </div>
     </div>
     <div class="col">
         <div class="form-floating">
             <input type="text" class="form-control" disabled="true" id="floatingPassword"
-                placeholder="Phone No" name="phoneNo" [(ngModel)]="user.phoneNo">
+                placeholder="Phone No" name="phoneNo" [(ngModel)]="reg.retailerPhoneNo">
             <label for="floatingPassword">Phone No</label>
         </div>
     </div>

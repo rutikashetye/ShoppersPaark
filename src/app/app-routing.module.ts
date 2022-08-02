@@ -16,7 +16,9 @@ import { ProductSpecificComponent } from './product-specific/product-specific.co
 import { ProductComponent } from './product/product.component';
 import { RetailerDashComponent } from './retailer-dash/retailer-dash.component';
 import { RetailerLoginComponent } from './retailer-login/retailer-login.component';
+import { RetailerProfileComponent } from './retailer-profile/retailer-profile.component';
 import { RetailerRegisterComponent } from './retailer-register/retailer-register.component';
+import { RetailerViewProductComponent } from './retailer-view-product/retailer-view-product.component';
 import { ShippingAddressComponent } from './shipping-address/shipping-address.component';
 import { UserDashComponent } from './user-dash/user-dash.component';
 import { UserLoginComponent } from './user-login/user-login.component';
@@ -52,6 +54,8 @@ const routes: Routes = [
   {path:'retailer-dash', component:RetailerDashComponent,
     children:[
       {path:'addproduct', component:AddProductComponent},
+      {path:'viewProduct', component:RetailerViewProductComponent},
+      {path:'viewProfile', component:RetailerProfileComponent},
     ]
    },
   // Admin dashboard

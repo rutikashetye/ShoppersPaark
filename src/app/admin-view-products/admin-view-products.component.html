@@ -11,7 +11,6 @@
                     <th>Price</th>
                     <!--deal-->
                     <th>Quantity</th>
-                    <th>Update</th>
                 </tr>
             </thead>
             <tbody>
@@ -47,7 +46,7 @@
                     <td>
                        {{c.available_quantity}}
                        </td>
-                    <td><button type="submit" class="btn btn-primary" (click)="udProduct(c.productId)" data-bs-toggle="modal" data-bs-target="#exampleModal">Update</button></td>
+                    <!-- <td><button type="submit" class="btn btn-primary" (click)="udProduct(c.productId)" data-bs-toggle="modal" data-bs-target="#exampleModal">Update</button></td> -->
                 </tr> 
             </tbody>
         </table>
@@ -61,7 +60,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-         <form #uproduct="ngForm" (ngSubmit)="update()">
+         <form #uproduct="ngForm" >
             <div class="row">
                 <div class="col">
                     <label>Product Name :</label>
@@ -114,7 +113,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Save changes</button>
+          <!-- <button type="submit" (click)="update()"class="btn btn-primary">Save changes</button> -->
         </div>
       </div>
     </div>

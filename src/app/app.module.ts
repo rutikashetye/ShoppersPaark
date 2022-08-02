@@ -31,6 +31,9 @@ import { AdminViewRetailerComponent } from './admin-view-retailer/admin-view-ret
 import { AdminApproveRetailerComponent } from './admin-approve-retailer/admin-approve-retailer.component';
 import { RetailerRegisterComponent } from './retailer-register/retailer-register.component';
 import { PaymentSuccessComponent } from './payment-success/payment-success.component';
+import { RetailerProfileComponent } from './retailer-profile/retailer-profile.component';
+import { RetailerViewProductComponent } from './retailer-view-product/retailer-view-product.component';
+import { SearchPipe } from './searchPipe';
 
 
 @NgModule({
@@ -61,13 +64,17 @@ import { PaymentSuccessComponent } from './payment-success/payment-success.compo
     AdminViewRetailerComponent,
     AdminApproveRetailerComponent,
     RetailerRegisterComponent,
-    PaymentSuccessComponent
+    PaymentSuccessComponent,
+    RetailerProfileComponent,
+    RetailerViewProductComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

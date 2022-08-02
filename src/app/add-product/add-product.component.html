@@ -80,9 +80,9 @@
     </div>
     </form> -->
     <form  #addProductPic="ngForm" enctype="multipart/form-data" (ngSubmit)="upload3()"  (ngSubmit)="validate3()" >
-      <div class=>
-      <input type="file" class="form-control"  name="ap" (change)="onFileChange($event)" required #productImage:ngModel/><br/><br/>
-  <button type="submit" class="btn btn-primary"  [disabled]=addProductPic.invalid>upload</button>
+      <div>
+      <input type="file" class="form-control"  name="ap" (change)="onFileChange($event)" required /><br/><br/>
+  <button type="submit" class="btn btn-primary" [disabled]=addProductPic.invalid>upload</button>
     </div>  
     </form>
  

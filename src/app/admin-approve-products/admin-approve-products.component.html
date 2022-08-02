@@ -16,7 +16,7 @@
                 <tr *ngFor="let c of product">
                     <td>
                         <div class="d-flex align-items-center">
-                            <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt=""
+                            <img src="http://localhost:9090/downloads/{{c.productImage}}" alt=""
                                 style="width: 75px; height: 75px" class="" />
                                 <div class="ms-3">
                                     <p class="fw-bold mb-1">{{c.productName}}</p>
@@ -34,7 +34,7 @@
                     <td>
                         <button type="submit" (click)="ApproveProduct(c.productId)" class="btn btn-outline-success">Approve</button>
                     </td>
-                    <td><button type="button" class="btn btn-outline-primary">Reject</button></td>
+                    <td><button type="button" (click)="RejectProduct(c.productId)"class="btn btn-outline-primary">Reject</button></td>
                 </tr>
             </tbody>
         </table>

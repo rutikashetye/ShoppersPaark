@@ -21,7 +21,10 @@ export class RetailerService {
   searchRetailer(rid:number):Observable<Retailer>{
     return this.http.get<Retailer>("http://localhost:9090/paark/retailer/"+rid);
   }
+  upProfile(rid:number):Observable<String>{
+    return this.http.post<String>("http://localhost:9090/paark/retailerSignup",+rid);
 
+  }
   
 
 }

@@ -1,0 +1,52 @@
+<div class="card mb-3 shadow-lg p-1 bg-body rounded" style="height:auto; margin-right: 10px; ">
+    <h5 class="text-center"> Product Details</h5>
+    <table class="table bg-white">
+        <thead class="bg-light">
+            <tr>
+                <th>Product</th>
+                <th>ProductId</th>
+                <th>Category</th>
+                <th>Discount</th>
+                <th>RetailerId</th>
+                <th>Price</th>
+                <!--deal-->
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let c of product">
+                <td>
+                    <div class="d-flex align-items-center">
+                        <img src="http://localhost:9090/downloads/{{c.productImage}}" alt=""
+                            style="width: 75px; height: 75px" class="" />
+                        <div class="ms-3">
+                            <p class="fw-bold mb-1">{{c.productName}}</p>
+                        
+                            <p class="text-muted mb-0">{{c.description}}</p>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="ms-1">
+                        {{c.productId}}
+                    </div>
+                </td>
+                <td>
+                   {{c.category}}
+                   </td>
+                <td>
+                    {{c.deal}} 
+                </td>
+                <td>
+                    {{c.retailer.retailerId}} 
+                </td>
+                <td>
+                    {{c.price}} 
+                </td>
+                <td>
+                   {{c.available_quantity}}
+                   </td>
+            </tr> 
+        </tbody>
+    </table>
+</div>

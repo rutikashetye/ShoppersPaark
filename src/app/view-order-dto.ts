@@ -4,4 +4,5 @@ export class ViewOrderDto {
 	productId:number;
 	quantity:number;
 	productImage:string;
+	vieworderDate:Date;
 }

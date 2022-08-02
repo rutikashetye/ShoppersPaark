@@ -34,7 +34,9 @@ export class RegisterServiceService {
   }
 
   addProductToProductTable(obj:AddProductDto):Observable<AddProductResponse>{
+    console.log(obj);
     return this.httpClient.post<AddProductResponse>("http://localhost:9090/paark/add-product",obj);
+    
   }
 
   upload3(formData:FormData){
@@ -43,5 +45,12 @@ export class RegisterServiceService {
 
   productImageDownload(pid:number){
     return this.httpClient.get("http://localhost:9090/paark/productimageDownload?productId="+pid,{responseType:'text'});
+  }
+  getProductsByRetailerId(rid:number){
+    return this.httpClient.get("http://localhost:9090/paark/viewAllProductsById/"+rid);
+  }
+  updateProduct(product:Product){
+    return this.httpClient.post("http://localhost:9090/paark/add-product",product);
+    
   }
 }

@@ -9,6 +9,4 @@ export class Retailer {
 	isRetailerApproved:boolean;
 	gstNo:string;
     confirmPassword:string;
- 
-
 }

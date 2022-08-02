@@ -30,10 +30,10 @@
                     {{c.gstNo}}
                 </td>
                 <td>
-                    <a href="http://localhost:9090/downloads/{{c.aadharCard}}">AadharCard</a>
+                    <a href="http://localhost:9090/downloads/{{c.aadharCard}}" (click)="downloadDoc(c.retailerId)">AadharCard</a>
                 </td>
                 <td>
-                    <a href="http://localhost:9090/downloads/{{c.panCard}}">Pan Card</a>
+                    <a href="http://localhost:9090/downloads/{{c.panCard}}" (click)="downloadDoc(c.retailerId)">Pan Card</a>
                 </td>
             </tr>
         </tbody>

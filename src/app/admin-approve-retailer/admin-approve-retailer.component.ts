@@ -32,11 +32,30 @@ export class AdminApproveRetailerComponent implements OnInit {
     this.service.approveRetailer(retailerId).subscribe(
       msg => {
         console.log(msg)
-
+        Swal.fire(
+          'Retailer Approved',
+          'View Retailer To see ',
+          'success'
+        )
        
        }
     );
     this.router.navigate(['/admin-dash/' + JSON.parse(sessionStorage.getItem("adminDetails")) + '/viewretailer']);
+  }
+
+  RejectRetailer(retailerId:number)
+  {
+    console.log(retailerId)
+    this.service.rejectRetailer(retailerId).subscribe(
+      msg=>{console.log(msg)
+        Swal.fire({
+         text: 'Rejected Reject',
+          icon:'success'
+        }
+        )    
+        location.reload();
+      }    
+    );
   }
 
 

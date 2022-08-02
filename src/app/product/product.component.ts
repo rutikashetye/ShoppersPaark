@@ -12,11 +12,14 @@ import Swal from 'sweetalert2'
 })
 export class ProductComponent implements OnInit {
   cat: string = "";
+  SelectValue:string="blue";
+ 
   product: any;
   colorlist: String[];
   brandlist: String[];
   // products=Product[];
-  constructor(private route: ActivatedRoute, private service: ProductService,private regser:RegisterServiceService) { }
+  constructor(private route: ActivatedRoute, private service: ProductService, private regser: RegisterServiceService) { }
+
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -38,46 +41,49 @@ export class ProductComponent implements OnInit {
                 console.log(this.brandlist);
               }
             );
-          for(let c of this.product)
-           { this.regser.productImageDownload(c.productId).subscribe(
-              data=>{ console.log(data)
-              });
+            for (let c of this.product) {
+              this.regser.productImageDownload(c.productId).subscribe(
+                data => {
+                  console.log(data)
+                });
             }
-
-
-
           }
-        
-
         );
     }
     )
-   
+    console.log(this.SelectValue)
   }
 
-  sortbylow(){
+ 
+	// onSelected():void {
+	// 	this.selectedTeam = this.teams.nativeElement.value;
+	// }
+
+
+
+  sortbylow() {
     this.service.sortBylow(this.cat)
-        .subscribe(
-          msg => {
-            this.product = msg;
-          }
-        );
-      }
-  sortbyhigh(){
-    this.service.sortByHigh(this.cat)
-        .subscribe(
-          msg => {
-            this.product = msg;
-          }
-        );
+      .subscribe(
+        msg => {
+          this.product = msg;
+        }
+      );
   }
-  newestFirst(){
+  sortbyhigh() {
+    this.service.sortByHigh(this.cat)
+      .subscribe(
+        msg => {
+          this.product = msg;
+        }
+      );
+  }
+  newestFirst() {
     this.service.newestFirst(this.cat)
-        .subscribe(
-          msg => {
-            this.product = msg;
-          }
-        );
+      .subscribe(
+        msg => {
+          this.product = msg;
+        }
+      );
   }
 }
 

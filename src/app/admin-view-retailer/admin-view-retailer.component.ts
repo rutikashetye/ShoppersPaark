@@ -20,4 +20,13 @@ export class AdminViewRetailerComponent implements OnInit {
       }
     )
   }
+
+  downloadDoc(retailerId:number){
+    this.service.retailerProfile(retailerId).subscribe(
+      data => {
+        console.log(data)
+
+      }
+    )
+  }
 }

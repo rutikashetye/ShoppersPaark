@@ -1,6 +1,6 @@
 import { JsonPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AddToCartDto } from '../add-to-cart-dto';
 import { Product } from '../product';
 import { ProductService } from '../product.service';
@@ -19,7 +19,7 @@ export class ProductSpecificComponent implements OnInit {
   message:string;
   dto:AddToCartDto=new AddToCartDto;
   res:string="";
-  constructor(private route: ActivatedRoute, private service: ProductService,private uSer:UserService) { }
+  constructor(private route: ActivatedRoute, private service: ProductService,private uSer:UserService,private rou:Router) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -46,9 +46,16 @@ export class ProductSpecificComponent implements OnInit {
     else{
     this.service.addTocart(prodid,JSON.parse(sessionStorage.getItem("userDetails")),this.num).subscribe(
       msg=>{
-        this.res=msg
-        console.log(this.res);
-        alert(this.res);
+        // this.res=msg.toString()
+        this.rou.navigate(['/cart']);
+        // console.log(msg);
+        // alert("Product Added ");
+        // window.alert("Product Added");
+        Swal.fire({
+          icon: 'info',
+          title: 'Oops...',
+          text: 'Please Login First!',
+        })
       });
     }
   }

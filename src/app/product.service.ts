@@ -12,9 +12,9 @@ export class ProductService {
   viewTop4Products():Observable<Product[]>{
     return this.http.get<Product[]>("http://localhost:9090/paark/viewTopProducts");
   }
-//working  
-  createOrUpdateProduct(product){
-    return this.http.post("http://localhost:9090/paark/createprodct",product);
+// working  
+  UpdateProduct(product){
+    return this.http.post("http://localhost:9090/paark/updateprodct",product);
   }
   getProductByProductId(pid:number):Observable<Product>
   {
@@ -23,8 +23,8 @@ export class ProductService {
   viewproductsByCat(category:string):Observable<Product[]>{
     return this.http.get<Product[]>("http://localhost:9090/paark/view-productByCategory/"+category);
   }
-  addTocart(pid:number,uid:number,qun:number):Observable<string>{
-    return this.http.post<string>("http://localhost:9090/paark/addToCart/"+pid+"/"+uid+"/"+qun,{ responseType: 'text' });
+  addTocart(pid:number,uid:number,qun:number){
+    return this.http.post("http://localhost:9090/paark/addToCart/"+pid+"/"+uid+"/"+qun,{responseType:'text'});
   }
   getAllcolors(cat:String):Observable<String[]>
   {

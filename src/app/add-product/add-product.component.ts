@@ -27,6 +27,7 @@ export class AddProductComponent implements OnInit {
 
   ngOnInit(): void {
       this.rid=JSON.parse(sessionStorage.getItem("retailerDetails"));
+      console.log(this.rid)
   }
 
   addProductToProductTable(){
@@ -67,6 +68,7 @@ onFileChange(event){
     let formData=new FormData();
     formData.append('productId',this.addProductResponse.productId.toString());
     formData.append('productPic',this.productImage);
+    formData.append('retailerId',this.rid.toString());
     this.registerService.upload3(formData).subscribe(data=>{ console.log(data)
     Swal.fire(
       'Product Added',

@@ -10,6 +10,7 @@ import Swal from 'sweetalert2'
   styleUrls: ['./admin-approve-products.component.css']
 })
 export class AdminApproveProductsComponent implements OnInit {
+ 
   product:any;
   constructor(private service:AdminService, private ser:RetailerService,private router:Router,private regser:RegisterServiceService) { }
 
@@ -17,15 +18,43 @@ export class AdminApproveProductsComponent implements OnInit {
     this.ser.is_not_Approvedproducts().subscribe(
       data=>{
         this.product=data;
+        for(let c of this.product)
+           { this.regser.productImageDownload(c.productId).subscribe(
+              data=>{ console.log(data)
+              });
+            }
       }
     )
   }
   ApproveProduct(productId:number){
     console.log(productId)
     this.service.approveProducts(productId).subscribe(
-      msg=>{console.log(msg)}
+      msg=>{console.log(msg)
+        Swal.fire(
+          'Product Approved',
+          'View Products To see ',
+          'success'
+        )    
+      }    
+      
     );
-    this.router.navigate(['/admin-dash/'+JSON.parse(sessionStorage.getItem("adminDetails"))+'/viewproducts']);
+    location.reload();
+    // location.reload();
+    // this.router.navigate(['admin-dash/'+JSON.parse(sessionStorage.getItem("adminDetails"))+'/viewproducts']);
+  }
+  RejectProduct(productId:number)
+  {
+    console.log(productId)
+    this.service.rejectProducts(productId).subscribe(
+      msg=>{console.log(msg)
+        Swal.fire({
+         text: 'Product Reject',
+          icon:'success'
+        }
+        )    
+        location.reload();
+      }    
+    );
   }
   
 
