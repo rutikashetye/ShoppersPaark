@@ -30,6 +30,7 @@ export class UserSignupComponent implements OnInit {
           'Please login to start shopping. ',
           'success'
         )
+        this.route.navigate(['/login'])
       }
     );
   }

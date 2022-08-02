@@ -34,6 +34,8 @@ import { PaymentSuccessComponent } from './payment-success/payment-success.compo
 import { RetailerProfileComponent } from './retailer-profile/retailer-profile.component';
 import { RetailerViewProductComponent } from './retailer-view-product/retailer-view-product.component';
 import { SearchPipe } from './searchPipe';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { ContactusComponent } from './contactus/contactus.component';
 
 
 @NgModule({
@@ -67,7 +69,9 @@ import { SearchPipe } from './searchPipe';
     PaymentSuccessComponent,
     RetailerProfileComponent,
     RetailerViewProductComponent,
-    SearchPipe
+    SearchPipe,
+    AboutusComponent,
+    ContactusComponent
   ],
   imports: [
     BrowserModule,

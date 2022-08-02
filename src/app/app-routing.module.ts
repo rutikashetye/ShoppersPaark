@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AboutusComponent } from './aboutus/aboutus.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { AdminApproveProductsComponent } from './admin-approve-products/admin-approve-products.component';
 import { AdminApproveRetailerComponent } from './admin-approve-retailer/admin-approve-retailer.component';
@@ -8,6 +9,7 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminViewProductsComponent } from './admin-view-products/admin-view-products.component';
 import { AdminViewRetailerComponent } from './admin-view-retailer/admin-view-retailer.component';
 import { CartComponent } from './cart/cart.component';
+import { ContactusComponent } from './contactus/contactus.component';
 import { HomeComponent } from './home/home.component';
 import { MissingComponent } from './missing/missing.component';
 import { MyordersComponent } from './myorders/myorders.component';
@@ -48,6 +50,9 @@ const routes: Routes = [
  
   {path:'cart', component:CartComponent},
   {path:'missingcart', component:MissingComponent},
+  {path:'aboutus', component:AboutusComponent},
+  {path:'contactus', component:ContactusComponent},
+
 
   {path:'retailer-login', component:RetailerLoginComponent},
   {path:'retailer-signup', component:RetailerRegisterComponent},
