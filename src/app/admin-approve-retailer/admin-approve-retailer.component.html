@@ -22,8 +22,8 @@
                 <td>{{c.gstNo}}</td>
                 <td>
                     <div class="ms-3">
-                        <p class="fw-bold mb-1"><a href="{{c.aadharCard}}">AadharCard</a></p>
-                        <p class="fw-bold mb-0"><a href="{{c.panCard}}">Pan Card</a></p>
+                        <p class="fw-bold mb-1"><a href="http://localhost:9090/downloads/{{c.aadharCard}}" (click)="downloadDoc(c.retailerId)">AadharCard</a></p>
+                        <p class="fw-bold mb-0"><a href="http://localhost:9090/downloads/{{c.panCard}}"  (click)="downloadDoc(c.retailerId)">Pan Card</a></p>
                     </div>
                 </td>
                 <td>

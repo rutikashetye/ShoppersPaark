@@ -15,7 +15,7 @@ export class AdminDashComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.aid = +params.get('id');
-      if(!sessionStorage.getItem("adminDetails"))
+      if(!sessionStorage.getItem("isLog"))
       {this.router.navigate(['/home']);  }
       }
     );

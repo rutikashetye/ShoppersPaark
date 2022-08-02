@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  uid:number
   result:boolean;
   constructor(private router:Router) { }
 
@@ -17,6 +18,7 @@ export class NavbarComponent implements OnInit {
     }
     else{
       this.result=true;
+      this.uid=JSON.parse(sessionStorage.getItem("userDetails"));
     }
   }
 

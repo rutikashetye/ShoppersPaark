@@ -1,3 +1,5 @@
+import { Cart } from "./cart";
+
 export class User {
     userId:number;
     userName:string;
@@ -5,5 +7,6 @@ export class User {
     phoneNo:string;
     password:string;
     gender:string;
+    cart: Cart;
 
 }

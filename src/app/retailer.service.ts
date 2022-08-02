@@ -15,7 +15,11 @@ export class RetailerService {
   }
 
   is_approveproducts():Observable<Product[]>{
-    return this.http.get<Product[]>("http://localhost:9090/paark/viewproducts");
+    return this.http.get<Product[]>("http://localhost:9090/paark/viewApprovedproducts");
+  }
+
+  searchRetailer(rid:number):Observable<Retailer>{
+    return this.http.get<Retailer>("http://localhost:9090/paark/retailer/"+rid);
   }
 
   

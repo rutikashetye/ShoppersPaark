@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { RegisterServiceService } from '../register-service.service';
 import { Regresponse } from '../regresponse';
 import { Retailer } from '../retailer';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -34,27 +35,42 @@ export class RetailerRegisterComponent implements OnInit {
   }
 
 
-  aadharPic: any;
-  panPic: any;
+  aadharCard: any;
+  panCard: any;
   retailerId: any;
   onFileChange1(event) {
-    this.aadharPic = event.target.files[0];
+    this.aadharCard = event.target.files[0];
   }
   onFileChange2(event) {
-    this.panPic = event.target.files[0];
+    this.panCard = event.target.files[0];
   }
   upload1() {
     let formData1 = new FormData();
     formData1.append('retailerId', this.regResponse.retailerId.toString());
-    formData1.append('aadharPic', this.aadharPic);
+    formData1.append('aadharPic', this.aadharCard);
 
-    this.service.upload1(formData1).subscribe(data => alert(JSON.stringify(data)));
+    this.service.upload1(formData1).subscribe(data => {
+      console.log(data);
+      // Swal.fire({
+      //   text: 'Aadhar Card Uploaded',
+      //   icon: 'success'
+      // })
+    });
   }
+
   upload2() {
     let formData2 = new FormData();
     formData2.append('retailerId', this.regResponse.retailerId.toString());
-    formData2.append('panPic', this.panPic);
-    this.service.upload2(formData2).subscribe(data => alert(JSON.stringify(data)));
+    formData2.append('panPic', this.panCard);
+    this.service.upload2(formData2).subscribe(data => {
+      console.log(data)
+      // Swal.fire(
+      //   {
+      //     text: 'Pan Card Uploaded',
+      //     icon: 'success'
+      //   })
+
+    });
   }
   validate1() {
     this.aadhar = true;

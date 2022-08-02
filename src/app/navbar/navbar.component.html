@@ -20,9 +20,10 @@
                   </a>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" *ngIf="!result" [routerLink]="['/login']"><img src="https://img.icons8.com/ios/24/0f0c29/user-male-circle.png"/> Login</a></li>
-                  <li><a class="dropdown-item" href="#" *ngIf="result"><img src="https://img.icons8.com/material-rounded/24/0f0c29/dashboard-layout.png"/> My Profile</a></li>
-                  <li><a class="dropdown-item" href="#" *ngIf="result"><img src="https://img.icons8.com/ios-glyphs/24/0f0c29/shopping-cart--v1.png"/> My Orders</a></li>
-                  <li><a class="dropdown-item" href="#" *ngIf="result"><img src="https://img.icons8.com/ios/24/0f0c29/like--v1.png"/> Wishlist</a></li>
+                  <li><a class="dropdown-item" *ngIf="result" [routerLink]="['/user-dash',uid]"><img src="https://img.icons8.com/material-rounded/24/0f0c29/dashboard-layout.png"/> My Profile</a></li>
+                  <li><a class="dropdown-item" *ngIf="result" [routerLink]="['/user-dash',uid]"><img src="https://img.icons8.com/ios-glyphs/24/0f0c29/shopping-cart--v1.png"/> My Orders</a></li>
+                  <li><a class="dropdown-item" *ngIf="result" [routerLink]="['/user-dash',uid]"><img src="https://img.icons8.com/ios/24/0f0c29/like--v1.png"/> Wishlist</a></li>
+                
                 </ul>
               </li>
             <li class="nav-item">
@@ -37,9 +38,15 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link text-white">
+              <a *ngIf="result" [routerLink]="['/cart']" class="nav-link text-white">
                 <img src="https://img.icons8.com/ios-glyphs/24/fffc00/shopping-cart--v1.png"/>
                 Cart
+              </a>
+            </li>
+            <li class="nav-item">
+              <a [routerLink]="['/admin-login']" class="nav-link text-white">
+                <img src="https://img.icons8.com/glyph-neue/24/fffc00/admin-settings-female.png"/>
+                Admin
               </a>
             </li>
         </ul>

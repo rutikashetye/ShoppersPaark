@@ -5,25 +5,25 @@
         <button class="btn btn-primary" type="button">Search</button>
     </form>
     <br>
-    <div class="card p-3 mb-5 bg-white rounded my-lst">
+    <div class="card p-3 mb-5 bg-white rounded my-lst" *ngFor="let p of prod">
         <div class="row">
             <div class="col col-lg-2">
-                <img src="./assets/images/HomeProducts/samsung.png" class="img-fluid" alt="..."
+                <img src="http://localhost:9090/downloads/{{p.productImage}}" class="img-fluid" alt="..."
                     style="width:100px;height:100px;"> <!--productImage-->
             </div>
             <div class="col-3"><!-- query-->
                 
-                <h6 > Samsung Mobile</h6>
+                <h6 >{{p.productName}}</h6>
                 <!--productName -->
-                <small>Samsung</small> <!--brand-->
+                <small>{{p.brand}}</small> <!--brand-->
             </div>
             <div class="col">
-                <h6>₹ 12,000</h6> <!-- discountedPrice-->
+                <h6>₹{{p.amount}}</h6> <!-- discountedPrice-->
             </div>
             <div class="col">
-                <h6>Delivered on 21 June</h6>
+                <h6>Order placed on </h6>
                 <!--orderDate+4 -->
-                <small>Your Item has been delivered.</small> <!--orderStatus-->
+                <small>Your Item is on the way.</small> <!--orderStatus-->
             </div>
         </div>
     </div>

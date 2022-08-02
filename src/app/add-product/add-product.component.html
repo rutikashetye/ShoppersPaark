@@ -1,7 +1,7 @@
 <div class="card mb-3 shadow-lg p-4 mb-4 bg-body rounded">
   <h5 class="card-title">Add Product</h5>
   <hr>
-  <form #addProductForm="ngForm" (ngSubmit)="addProductToProductTable()">
+  <form #addProductForm="ngForm" enctype="multipart/form-data" (ngSubmit)="addProductToProductTable()">
   <div class="row">
     <div class="col">
       <div class="form-floating mb-3">
@@ -28,12 +28,6 @@
       <div class="form-floating">
         <input type="number" class="form-control" #deal=ngModel id="floatingPassword" placeholder="Discount" name="deal" [(ngModel)]="product.deal">
         <label for="floatingPassword">Discount %</label>
-      </div>
-    </div>
-    <div class="col">
-      <div class="form-floating">
-        <input type="number" class="form-control" #discountedPrice=ngModel id="floatingPassword" placeholder="Discount" name="deal" [(ngModel)]="product.discountedPrice">
-        <label for="floatingPassword">Final price</label>
       </div>
     </div>
     <div class="col">

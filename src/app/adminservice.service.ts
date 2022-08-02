@@ -30,5 +30,7 @@ export class AdminService {
   is_approvedRetailer():Observable<Retailer[]>{
     return this.http.get<Retailer[]>("http://localhost:9090/paark/viewretailers");
   }
-
+  retailerProfile(rid:number){
+    return this.http.get("http://localhost:9090/paark/profile?retailerId="+rid);
+  }
 }

@@ -5,67 +5,62 @@
                 <div class="card mb-3 shadow-lg p-3 bg-body">
                     <h6> Deliver to: <b> Mumbai - 400025</b></h6>
                     <div class="position-absolute top-0 end-0 p-2">
-                        <button class="btn btn-outline-primary" [routerLink]="['/address']" type="submit">
+                        <button class="btn btn-outline-primary" [routerLink]="['/user-dash',usid]" type="submit">
                             Change
                         </button>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="card mb-3 shadow-lg p-3 bg-body ">
+                <div class="card mb-3 shadow-lg p-3 bg-body " *ngFor="let i of list">
                     <div class="row">
                         <div class="col-3">
                             <div class="row">
                                 <div class="row d-flex justify-content-center">
-                                    <img src="./assets/images/HomeProducts/samsung.png" class="img-fluid" alt="..."
+                                    <img src="http://localhost:9090/downloads/{{i.product.productImage}}" class="img-fluid" alt="..."
                                         style="width:auto;height:auto;">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="btn-group mr-2" role="group">
-                                    <button type="button" class="btn btn-outline-secondary" (click)="dec()">-</button>
+                                    <button type="button" class="btn btn-outline-secondary" (click)="dec(i.item.itemId)">-</button>
                                     <button type="button" class="btn btn-outline-secondary">{{num}}</button>
-                                    <button type="button" class="btn btn-outline-secondary" (click)="inc()">+</button>
+                                    <button type="button" class="btn btn-outline-secondary" (click)="inc(i.item.itemId)">+</button>
                                 </div>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="row">
-                                <h5>SAMSUNG Galaxy F22 (Denim Blue, 128 GB) (6 GB RAM)</h5>
+                                <h5>{{i.product.productId}}</h5>
                             </div>
                             <div class="row">
-                                <small class="text-muted">Seller: Rutika</small>
+                                <small class="text-muted">Seller:{{i.retailer.retailerName}} </small>
                             </div>
                             <div class="row">
-                                <h3>₹ 12,000
+                                <h3>₹{{i.product.discountedPrice}}
                                     <!-- discountedPrice-->
-                                    <span class="text-muted " style="font-size: 15px;"><s>₹ 15,000</s>
+                                    <span class="text-muted " style="font-size: 15px;"><s>₹{{i.product.price}}</s>
                                         <!--price-->
                                     </span>
-                                    <span style="font-size:18px;color: green;"><b>23% Off</b>
+                                    <span style="font-size:18px;color: green;"><b>{{i.product.deal}}% Off</b>
                                         <!--deal-->
                                     </span>
                                 </h3>
                             </div>
                             <div class="row">
-                                <h6>Delivery By</h6>
+                                <h6>Delivery By {{currentDate | date:'dd MMM yyyy'}}</h6>
                             </div>
                         </div>
                     </div>
                     <div class="position-absolute top-0 end-0 p-1">
-                        <button class="btn" type="submit" style="border-radius: 100px;">
-                            <img src="https://img.icons8.com/ios-glyphs/30/b0bec5/filled-trash.png">
+                        <button class="btn" type="submit" (click)="removeCartItem(i.item.itemId)" style="border-radius: 100px;">
+                            <img src="https://img.icons8.com/ios-glyphs/30/b0bec5/filled-trash.png" >
                         </button>
                     </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col"><button class="btn text-white p-2" type="submit"
-                                style="background-color: #ff6f00;float: right;">PLACE ORDER</button></div>
-                    </div>
-
                 </div>
             </div>
         </div>
+
         <div class="col">
             <div class="card mb-3 shadow-lg p-3 bg-body ">
                 <h6 class="text-muted">PRICE DETAILS</h6>
@@ -75,7 +70,7 @@
                         <h6>Price</h6>
                     </div>
                     <div class="col">
-                        <h6 style="float: right;">₹15,000</h6>
+                        <h6 style="float: right;">₹{{priceamount}}</h6>
                     </div>
                 </div>
                 <div class="row">
@@ -83,7 +78,7 @@
                         <h6>Discount</h6>
                     </div>
                     <div class="col">
-                        <h6 style="color:green;float: right;"> - ₹3,000</h6>
+                        <h6 style="color:green;float: right;"> - ₹{{priceamount-amount}}</h6>
                     </div>
                 </div>
 
@@ -97,16 +92,105 @@
                 </div>
                 <hr>
                 <div class="row">
-                        <div class="col">
-                            <h6><b>Total Amount</b></h6>
-                        </div>
-                        <div class="col">
-                            <h6 style="float: right;"><b>₹12,000</b></h6>
-                        </div>
+                    <div class="col">
+                        <h6><b>Total Amount</b></h6>
+                    </div>
+                    <div class="col">
+                        <h6 style="float: right;"><b>₹{{amount}}</b></h6>
+                    </div>
                 </div>
                 <hr>
-                <h6 style="color:green;">You will save ₹3,000 on this order.</h6>
+                <h6 style="color:green;">You will save ₹{{priceamount-amount}} on this order.</h6>
+                <div class="row">
+                <div class="col">
+                <button class="btn text-white p-2" type="submit" data-bs-toggle="modal" data-bs-target="#Buynow"
+                style="background-color: #ff6f00;float: right;">PLACE ORDER</button></div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="Buynow" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Card Payment</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form class="form" role="form" autocomplete="off">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="cc_name">Card Holder's Name</label>
+                            <input type="text" class="form-control" id="cc_name" pattern="\w+ \w+.*"
+                                title="First and last name" required="required">
+                        </div>
+                        <div class="form-group">
+                            <label>Card Number</label>
+                            <input type="text" class="form-control" autocomplete="off" maxlength="20" pattern="\d{16}"
+                                title="Credit card number" required="">
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-12">Card Exp. Date</label>
+                            <div class="col-md-4">
+                                <select class="form-control" name="cc_exp_mo" size="0">
+                                    <option value="01">01</option>
+                                    <option value="02">02</option>
+                                    <option value="03">03</option>
+                                    <option value="04">04</option>
+                                    <option value="05">05</option>
+                                    <option value="06">06</option>
+                                    <option value="07">07</option>
+                                    <option value="08">08</option>
+                                    <option value="09">09</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <select class="form-control" name="cc_exp_yr" size="0">
+                                    <option>2022</option>
+                                    <option>2023</option>
+                                    <option>2024</option>
+                                    <option>2025</option>
+                                    <option>2026</option>
+                                    <option>2027</option>
+                                    <option>2028</option>
+                                    <option>2029</option>
+                                    <option>2030</option>
+                                    <option>2031</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" autocomplete="off" maxlength="3" pattern="\d{3}"
+                                    title="Three digits at back of your card" required="" placeholder="CVC">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-md-12">Amount</label>
+                        </div>
+                        <div class="form-inline">
+                            <div class="input-group">
+                                <div class="input-group-prepend"><span class="input-group-text">₹</span></div>
+                                <input type="text" disabled="true" class="form-control text-right" id="exampleInputAmount"
+                                    placeholder="Enter amount" value={{amount}}>
+                                <div class="input-group-append"><span class="input-group-text">.00</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="form-group row">
+                            <div class="col-md-6">
+                                <button type="reset" class="btn btn-default btn-lg btn-block">Cancel</button>
+                            </div>
+                            <div class="col-md-6">
+                                <button type="submit" (click)="placeOrder()" class="btn btn-outline-success btn-lg btn-block">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>

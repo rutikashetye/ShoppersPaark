@@ -40,135 +40,40 @@
 
   <!-- Recommendations -->
   <div class="card mb-3 shadow-lg p-3 bg-body rounded" style="height:auto; ">
-    <h4>Recommended Items</h4> 
-        <div class="position-absolute top-0 end-0 p-3">
-        <button class="btn btn-primary p-2" type="submit" >
-            VIEW ALL
-        </button>
-    </div>
+    <h4>Popular Items</h4> 
     <hr style="color:grey;">
     <div class="row">
-        <div class="col">
+        <div class="col" *ngFor="let p of product">
             <div class="card p-3 mb-5 bg-white rounded my-lst">
                 <div class="position-absolute top-0 end-0 p-1">
-                    <button class="btn" type="submit" >
+                    <button class="btn" type="submit" > <!--p.productId-->
                         <img src="https://img.icons8.com/ios-filled/24/b0bec5/like--v1.png"/>
                     </button>
                 </div>
                 <div class="row d-flex justify-content-center">  
-                        <img src="./assets/images/HomeProducts/samsung.png" class="img-fluid" alt="..."
+                        <img src="http://localhost:9090/downloads/{{p.productImage}}" class="img-fluid" alt="..."
                         style="width:150px;height:200px;">
                 </div>
                 <div class="row">
-                    <h5>SAMSUNG </h5>
+                    <h5>{{p.brand}}</h5>
                 </div>
                 <div class="row">
-                    <h5>SAMSUNG Galaxy F22 (Denim Blue, 128 GB) (6 GB RAM)</h5>
+                    <h5>{{p.productName}}</h5>
                 </div>
                 <div class="row">
-                    <h5>₹ 12,000
+                    <h5>₹{{p.discountedPrice}}
                         <!-- discountedPrice-->
-                        <span class="text-muted " style="font-size: 15px;"><s>₹ 15,000</s>
+                        <span class="text-muted " style="font-size: 15px;"><s>₹{{p.price}}</s>
                             <!--price-->
                         </span>
-                        <span style="font-size:15px;color: green;"> 23% Off
+                        <span style="font-size:15px;color: green;"> {{p.deal}}% Off
                             <!--deal-->
                         </span>
                     </h5>
                 </div>
             </div>
         </div>
-        <div class="col">
-            <div class="card p-3 mb-5 bg-white rounded my-lst">
-                <div class="position-absolute top-0 end-0 p-1">
-                    <button class="btn" type="submit" >
-                        <img src="https://img.icons8.com/ios-filled/24/b0bec5/like--v1.png"/>
-                    </button>
-                </div>
-                <div class="row d-flex justify-content-center">
-                    <img src="./assets/images/HomeProducts/samsung.png" class="img-fluid" alt="..."
-                        style="width:150px;height:200px;">
-                </div>
-                <div class="row">
-                    <h5>SAMSUNG </h5>
-                </div>
-                <div class="row">
-                    <h5>SAMSUNG Galaxy F22 (Denim Blue, 128 GB) (6 GB RAM)</h5>
-                </div>
-                <div class="row">
-                    <h5>₹ 12,000
-                        <!-- discountedPrice-->
-                        <span class="text-muted " style="font-size: 15px;"><s>₹ 15,000</s>
-                            <!--price-->
-                        </span>
-                        <span style="font-size:15px;color: green;"> 23% Off
-                            <!--deal-->
-                        </span>
-                    </h5>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card p-3 mb-5 bg-white rounded my-lst">
-                <div class="position-absolute top-0 end-0 p-1">
-                    <button class="btn" type="submit" >
-                        <img src="https://img.icons8.com/ios-filled/24/b0bec5/like--v1.png"/>
-                    </button>
-                </div>
-                <div class="row d-flex justify-content-center">
-                    <img src="./assets/images/HomeProducts/samsung.png" class="img-fluid" alt="..."
-                        style="width:150px;height:200px;">
-                </div>
-                <div class="row">
-                    <h5>SAMSUNG </h5>
-                </div>
-                <div class="row">
-                    <h5>SAMSUNG Galaxy F22 (Denim Blue, 128 GB) (6 GB RAM)</h5>
-                </div>
-                <div class="row">
-                    <h5>₹ 12,000
-                        <!-- discountedPrice-->
-                        <span class="text-muted " style="font-size: 15px;"><s>₹ 15,000</s>
-                            <!--price-->
-                        </span>
-                        <span style="font-size:15px;color: green;"> 23% Off
-                            <!--deal-->
-                        </span>
-                    </h5>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-          <div class="card p-3 mb-5 bg-white rounded my-lst">
-              <div class="position-absolute top-0 end-0 p-1">
-                  <button class="btn" type="submit" >
-                      <img src="https://img.icons8.com/ios-filled/24/b0bec5/like--v1.png"/>
-                  </button>
-              </div>
-              <div class="row d-flex justify-content-center">
-                  <img src="./assets/images/HomeProducts/samsung.png" class="img-fluid" alt="..."
-                      style="width:150px;height:200px;">
-              </div>
-              <div class="row">
-                  <h5>SAMSUNG </h5>
-              </div>
-              <div class="row">
-                  <h5>SAMSUNG Galaxy F22 (Denim Blue, 128 GB) (6 GB RAM)</h5>
-              </div>
-              <div class="row">
-                  <h5>₹ 12,000
-                      <!-- discountedPrice-->
-                      <span class="text-muted " style="font-size: 15px;"><s>₹ 15,000</s>
-                          <!--price-->
-                      </span>
-                      <span style="font-size:15px;color: green;"> 23% Off
-                          <!--deal-->
-                      </span>
-                  </h5>
-              </div>
-          </div>
-      </div>
-    </div>
+       </div> 
 </div>
 <!-- Recommendations - end -->
   

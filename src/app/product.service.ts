@@ -9,7 +9,10 @@ import { Product } from './product';
 export class ProductService {
 
   constructor(private http:HttpClient) { }
-
+  viewTop4Products():Observable<Product[]>{
+    return this.http.get<Product[]>("http://localhost:9090/paark/viewTopProducts");
+  }
+//working  
   createOrUpdateProduct(product){
     return this.http.post("http://localhost:9090/paark/createprodct",product);
   }
@@ -45,6 +48,10 @@ export class ProductService {
   }
 
 
+  getProductByItemId(itemId:number):Observable<Product>
+  {
+    return this.http.get<Product>("http://localhost:9090/paark/getProductByItemId/"+itemId);
+  }
 
 
 

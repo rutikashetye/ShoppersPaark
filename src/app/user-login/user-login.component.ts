@@ -26,6 +26,7 @@ export class UserLoginComponent implements OnInit {
           this.isValid = msg;
           if (this.isValid) {
                   sessionStorage.setItem("userDetails",JSON.stringify(this.us.userId));
+                  sessionStorage.setItem("isLog",JSON.parse('true'));
                   this.route.navigate(['/user-dash',this.us.userId]);
                 }
                 else {

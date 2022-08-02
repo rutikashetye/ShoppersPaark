@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../product.service';
+import { RegisterServiceService } from '../register-service.service';
 import { RetailerService } from '../retailer.service';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-product',
@@ -14,7 +16,7 @@ export class ProductComponent implements OnInit {
   colorlist: String[];
   brandlist: String[];
   // products=Product[];
-  constructor(private route: ActivatedRoute, private service: ProductService) { }
+  constructor(private route: ActivatedRoute, private service: ProductService,private regser:RegisterServiceService) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -36,10 +38,21 @@ export class ProductComponent implements OnInit {
                 console.log(this.brandlist);
               }
             );
+          for(let c of this.product)
+           { this.regser.productImageDownload(c.productId).subscribe(
+              data=>{ console.log(data)
+              });
+            }
+
+
+
           }
+        
+
         );
     }
     )
+   
   }
 
   sortbylow(){

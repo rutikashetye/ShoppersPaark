@@ -1,92 +1,105 @@
-<div  class="container bg shadow-lg mb-5 rounded">
-    <div class="row g-0">
-        <div class="col-md-5 text-white p-3" style="background: #046979">
-            <h3>Retailer Signup</h3>
-            <br>
-            <h6>Welcome to ShoppersPark. Fill details to Register as a Retailer.</h6>
-            <br><img src="./assets/images/retail.jpg" class="img-fluid rounded" alt="...">
-        </div>
-        
-        <div class="col p-5">
-            
-            <form #regForm="ngForm" (ngSubmit)="registerRetailer()">
-               
-                <input type="text"  class="form-control"  #retailername=ngModel name="retailerName" [(ngModel)]="retailer.retailerName" placeholder="enter your name here" required/>
-                <div *ngIf="retailername.touched && retailername.invalid">
-                    <div style="color:black;">Please enter your Name</div>
-                  </div><br/>
-                <input type="email"   class="form-control" #em =ngModel name="retailerEmail" [(ngModel)]="retailer.retailerEmail" placeholder="enter your email here" required  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"/> 
-                <div *ngIf="em.invalid && (em.dirty || em.touched)">
-                    <div *ngIf="em.errors?.['required']" style="color:black;">Enter Email</div>
-                    <div *ngIf="em.errors?.['pattern']" style="color:black;">Invalid Email</div>
-                  </div><br/>
-                <input type="password"  class="form-control" #retailerpass=ngModel name="retailerPassword" [(ngModel)]="retailer.retailerPassword" placeholder="enter your password here" required  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"/>
-                <div *ngIf="retailerpass.invalid &&(retailerpass.dirty||retailerpass.touched)">
-                    <div *ngIf="retailerpass.errors?.['required']" style="color:black;">Please Enter password</div>
-                    <div *ngIf="retailerpass.errors?.['pattern']" style="color:black;">"Please enter strong password</div>
-                  </div><br/>
-                <input type="password"  class="form-control" #retailerpassconfirm=ngModel name="retailerConfirmPassword" [(ngModel)]="retailer.confirmPassword" placeholder="Confirm your password here" required   pattern="{{ retailerpass.value }}"/><br/>
-                    <div *ngIf="retailerpassconfirm.errors?.['pattern']"> Password & Confirm Password does not match.</div>
+<div class="container bg shadow-lg mb-5 rounded">
+  <div class="row g-0">
+    <div class="col-md-5 p-5" style="background:white; color: #046979;">
+      <h3 class="align-text-center">Retailer Signup</h3>
+      <br>
+      <h5 class="align-text-center">Welcome to ShoppersPark. Fill details to Register as a Retailer.</h5>
+      <br><img src="./assets/images/retailerLogin.png" class="img-fluid rounded" alt="...">
+      <h5 class="align-text-center">Already have an Account.</h5>
+      <a [routerLink]="['/retailer-login']" >Please Login</a>
+    </div>
 
-                <input type="tel" #mob=ngModel class="form-control" name="retailerPhoneNo" [(ngModel)]="retailer.retailerPhoneNo" placeholder="enter your mobile here" required 
-                pattern="[0-9]{10}$"/>
-                <div *ngIf="mob.invalid && (mob.dirty||mob.touched)">
-                    <div *ngIf="mob.errors?.['required'] " style="color:black;">Please enter mobile</div>
-                    <div *ngIf="mob.errors?.['pattern'] " style="color:black;">invalid phone no</div>
-                  </div><br/>
-                <input type="number"  class="form-control"  #gstno=ngModel name="gstNo" [(ngModel)]="retailer.gstNo" placeholder="enter your gstNo here" required/>
-                <div *ngIf="gstno.invalid && (gstno.dirty||gstno.touched)">
-                <div *ngIf="gstno.errors?.['required'] " style="color:black;">Please enter gstNo</div></div><br/>
-                <button type="submit" class="btn btn-info btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width:100%;font-size:20px; background-color:#046979;"  [disabled]=regForm.invalid
-                >SignUp</button> 
-            </form>
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Registration Successful</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                      Please upload your Aadhar card and Pan card.
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-                      
-                    </div>
-                  </div>
-                </div>
-              </div>
-            
-           
-           
-           <form  #aadharForm="ngForm" enctype="multipart/form-data" (ngSubmit)="upload1()"  (ngSubmit)="validate1()" >
-            Select Aadhar pic:<input type="file" name="ap" (change)="onFileChange1($event)" required #aadhar:ngModel/><br/><br/>
-            <button type="submit" class="btn btn-info btn-lg" style="background-color:#046979;" [disabled]=aadharForm.invalid>upload</button>
-            </form>
-            <br/>
-            <form #panForm="ngForm"enctype="multipart/form-data" (ngSubmit)="upload2()" (ngSubmit)="validate2()">
-            Select Pan pic:<input type="file" name="pp" (change)="onFileChange2($event)" required #pan:ngModel/><br/><br/>
-            <button type="submit" class="btn btn-info btn-lg" style="background-color:#046979;" [disabled]=panForm.invalid data-bs-toggle="modal" data-bs-target="#example">upload</button>
-            </form>
-            <div class="modal fade" id="example" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Registration Successful</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                      {{newMessage}}
-                    </div>
-                    <div class="modal-footer">
-                      <a type="button" class="btn btn-primary" data-bs-dismiss="modal" [routerLink]="['/retailer-login']">Close</a>
-                      
-                    </div>
-                  </div>
-                </div>
-              </div>
-        
-         </div>  
+    <div class="col p-5">
+
+      <form #regForm="ngForm" (ngSubmit)="registerRetailer()">
+
+        <input type="text" class="form-control" #retailername=ngModel name="retailerName"
+          [(ngModel)]="retailer.retailerName" placeholder="enter your name here" required />
+        <div *ngIf="retailername.touched && retailername.invalid">
+          <div style="color:red;">Please enter your Name</div>
+        </div><br />
+        <input type="email" class="form-control" #em=ngModel name="retailerEmail" [(ngModel)]="retailer.retailerEmail"
+          placeholder="enter your email here" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" />
+        <div *ngIf="em.invalid && (em.dirty || em.touched)">
+          <div *ngIf="em.errors?.['required']" style="color:red;">Enter Email</div>
+          <div *ngIf="em.errors?.['pattern']" style="color:red;">Invalid Email</div>
+        </div><br />
+        <input type="password" class="form-control" #retailerpass=ngModel name="retailerPassword"
+          [(ngModel)]="retailer.retailerPassword" placeholder="enter your password here" required
+          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" />
+        <div *ngIf="retailerpass.invalid &&(retailerpass.dirty||retailerpass.touched)">
+          <div *ngIf="retailerpass.errors?.['required']" style="color:red;">Please Enter password</div>
+          <div *ngIf="retailerpass.errors?.['pattern']" style="color:red;">"Please enter strong password</div>
+        </div><br />
+        <input type="password" class="form-control" #retailerpassconfirm=ngModel name="retailerConfirmPassword"
+          [(ngModel)]="retailer.confirmPassword" placeholder="Confirm your password here" required
+          pattern="{{ retailerpass.value }}" /><br />
+        <div *ngIf="retailerpassconfirm.errors?.['pattern']"> Password & Confirm Password does not match.</div>
+
+        <input type="tel" #mob=ngModel class="form-control" name="retailerPhoneNo"
+          [(ngModel)]="retailer.retailerPhoneNo" placeholder="enter your mobile here" required pattern="[0-9]{10}$" />
+        <div *ngIf="mob.invalid && (mob.dirty||mob.touched)">
+          <div *ngIf="mob.errors?.['required'] " style="color:red;">Please enter mobile</div>
+          <div *ngIf="mob.errors?.['pattern'] " style="color:red;">invalid phone no</div>
+        </div><br />
+        <input type="number" class="form-control" #gstno=ngModel name="gstNo" [(ngModel)]="retailer.gstNo"
+          placeholder="enter your gstNo here" required />
+        <div *ngIf="gstno.invalid && (gstno.dirty||gstno.touched)">
+          <div *ngIf="gstno.errors?.['required'] " style="color:red;">Please enter gstNo</div>
+        </div><br />
+        <button type="submit" class="btn btn-info btn-lg text-white" data-bs-toggle="modal" data-bs-target="#exampleModal"
+          style="width:100%;font-size:20px; background-color:#046979;" [disabled]=regForm.invalid>SignUp</button>
+      </form>
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Registration Successful</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              Please upload your Aadhar card and Pan card.
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+
+            </div>
+          </div>
         </div>
+      </div>
+      <br>
+      <form #aadharForm="ngForm" enctype="multipart/form-data" (ngSubmit)="upload1()" (ngSubmit)="validate1()">
+        Select Aadhar Card picture:<input type="file" name="ap" (change)="onFileChange1($event)" required
+          #aadhar:ngModel /><br /><br />
+        <button type="submit" class="btn btn-info text-white btn-lg" style="background-color:#046979;float: right;"
+          [disabled]=aadharForm.invalid>upload</button>
+      </form>
+      <br />
+      <form #panForm="ngForm" enctype="multipart/form-data" (ngSubmit)="upload2()" (ngSubmit)="validate2()">
+        Select Pan Card picture:<input type="file" name="pp" (change)="onFileChange2($event)" required
+          #pan:ngModel /><br /><br />
+        <button type="submit" class="btn btn-info text-white btn-lg" style="background-color:#046979;float: right;" [disabled]=panForm.invalid
+          data-bs-toggle="modal" data-bs-target="#example">upload</button>
+      </form>
+      <div class="modal fade" id="example" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Registration Successful</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              {{newMessage}}
+            </div>
+            <div class="modal-footer">
+              <a type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                [routerLink]="['/retailer-login']">Close</a>
+
+            </div>
+          </div>
         </div>
+      </div>
+
+    </div>
+  </div>
+</div>

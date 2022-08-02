@@ -13,8 +13,6 @@ export class RetailerLoginComponent implements OnInit {
   login: RetailerLogin = new RetailerLogin();
   message: string;
   isValid: boolean;
-  validateRetailer: Retailer = new Retailer();
-
 
   constructor(private registerService: RegisterServiceService, private route: Router) { }
 
@@ -30,13 +28,14 @@ export class RetailerLoginComponent implements OnInit {
         msg => {
           this.isValid = msg;
           if (this.isValid) {
-            sessionStorage.setItem("RetailerDetails", JSON.stringify(this.login.retailerId));
-            this.route.navigate(['/retailer-dash', this.login.retailerId]);
+            sessionStorage.setItem("retailerDetails", JSON.stringify(this.login.retailerId));
+            sessionStorage.setItem("isLog",JSON.parse('true'));
+            this.route.navigate(['retailer-dash']);
+            this.message="login success"
           }
           else {
             this.message = "Login Failed.";
           }
-
           console.log(this.message);
         });
   }

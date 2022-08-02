@@ -7,8 +7,11 @@ import { AdminDashComponent } from './admin-dash/admin-dash.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminViewProductsComponent } from './admin-view-products/admin-view-products.component';
 import { AdminViewRetailerComponent } from './admin-view-retailer/admin-view-retailer.component';
+import { CartComponent } from './cart/cart.component';
 import { HomeComponent } from './home/home.component';
+import { MissingComponent } from './missing/missing.component';
 import { MyordersComponent } from './myorders/myorders.component';
+import { PaymentSuccessComponent } from './payment-success/payment-success.component';
 import { ProductSpecificComponent } from './product-specific/product-specific.component';
 import { ProductComponent } from './product/product.component';
 import { RetailerDashComponent } from './retailer-dash/retailer-dash.component';
@@ -26,7 +29,8 @@ const routes: Routes = [
   {path:'home', component:HomeComponent},
   // user dashboard routes
  
-
+  {path:'login', component:UserLoginComponent},
+  {path:'signup', component:UserSignupComponent},
   {path:'user-dash/:id',component:UserDashComponent,
    children: [
     {path:'profile', component:UserProfileComponent},
@@ -38,15 +42,16 @@ const routes: Routes = [
 
   {path:'products/:cat', component:ProductComponent},
   {path:'product/:id', component:ProductSpecificComponent},
-
-  {path:'login', component:UserLoginComponent},
-  {path:'signup', component:UserSignupComponent},
+  {path:'payment/:msg', component:PaymentSuccessComponent},
+ 
+  {path:'cart', component:CartComponent},
+  {path:'missingcart', component:MissingComponent},
 
   {path:'retailer-login', component:RetailerLoginComponent},
   {path:'retailer-signup', component:RetailerRegisterComponent},
-  {path:'retailer-dash/:id', component:RetailerDashComponent,
+  {path:'retailer-dash', component:RetailerDashComponent,
     children:[
-      {path:'add-product', component:AddProductComponent},
+      {path:'addproduct', component:AddProductComponent},
     ]
    },
   // Admin dashboard
@@ -57,7 +62,6 @@ const routes: Routes = [
     {path:'approveproducts', component:AdminApproveProductsComponent},
     {path:'viewretailer', component:AdminViewRetailerComponent},
     {path:'approveretailer', component:AdminApproveRetailerComponent},
-
   ]},
   
   

@@ -14,5 +14,4 @@ export class Product {
 	available_quantity:number;
 	color:string;
 	retailer:Retailer;
-	
 }

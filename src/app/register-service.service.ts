@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { AddProductDto } from './add-product-dto';
 import { AddProductResponse } from './add-product-response';
 import { Product } from './product';
 import { Regresponse } from './regresponse';
@@ -32,11 +33,15 @@ export class RegisterServiceService {
 
   }
 
-  addProductToProductTable(product:Product):Observable<AddProductResponse>{
-    return this.httpClient.post<AddProductResponse>("http://localhost:9090/paark/add-product",product);
+  addProductToProductTable(obj:AddProductDto):Observable<AddProductResponse>{
+    return this.httpClient.post<AddProductResponse>("http://localhost:9090/paark/add-product",obj);
   }
 
   upload3(formData:FormData){
     return this.httpClient.post("http://localhost:9090/paark/productpic-upload",formData,{responseType:'text'});
+  }
+
+  productImageDownload(pid:number){
+    return this.httpClient.get("http://localhost:9090/paark/productimageDownload?productId="+pid,{responseType:'text'});
   }
 }

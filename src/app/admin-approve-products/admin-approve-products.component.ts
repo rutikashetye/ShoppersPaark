@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AdminService } from '../adminservice.service';
+import { RegisterServiceService } from '../register-service.service';
 import { RetailerService } from '../retailer.service';
-
+import Swal from 'sweetalert2'
 @Component({
   selector: 'app-admin-approve-products',
   templateUrl: './admin-approve-products.component.html',
@@ -9,7 +11,7 @@ import { RetailerService } from '../retailer.service';
 })
 export class AdminApproveProductsComponent implements OnInit {
   product:any;
-  constructor(private service:AdminService, private ser:RetailerService) { }
+  constructor(private service:AdminService, private ser:RetailerService,private router:Router,private regser:RegisterServiceService) { }
 
   ngOnInit(): void {
     this.ser.is_not_Approvedproducts().subscribe(
@@ -23,7 +25,9 @@ export class AdminApproveProductsComponent implements OnInit {
     this.service.approveProducts(productId).subscribe(
       msg=>{console.log(msg)}
     );
-
+    this.router.navigate(['/admin-dash/'+JSON.parse(sessionStorage.getItem("adminDetails"))+'/viewproducts']);
   }
+  
+
 
 }

@@ -4,7 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { AddToCartDto } from '../add-to-cart-dto';
 import { Product } from '../product';
 import { ProductService } from '../product.service';
-import { RetailerService } from '../retailer.service';
+import Swal from 'sweetalert2';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-product-specific',
@@ -15,9 +16,10 @@ export class ProductSpecificComponent implements OnInit {
   num = 1;
   pid: number;
   p: Product = new Product;
+  message:string;
   dto:AddToCartDto=new AddToCartDto;
   res:string="";
-  constructor(private route: ActivatedRoute, private service: ProductService) { }
+  constructor(private route: ActivatedRoute, private service: ProductService,private uSer:UserService) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -31,13 +33,24 @@ export class ProductSpecificComponent implements OnInit {
     );
   }
 
+
   AddToCart(prodid:number){
+    if(!sessionStorage.getItem("userDetails"))
+    {
+      Swal.fire({
+        icon: 'info',
+        title: 'Oops...',
+        text: 'Please Login First!',
+      })
+    }
+    else{
     this.service.addTocart(prodid,JSON.parse(sessionStorage.getItem("userDetails")),this.num).subscribe(
       msg=>{
         this.res=msg
-        alert(JSON.stringify(this.res));
-      }
-    );
+        console.log(this.res);
+        alert(this.res);
+      });
+    }
   }
   inc(): void {
     ++this.num;
@@ -45,4 +58,12 @@ export class ProductSpecificComponent implements OnInit {
   dec(): void {
     --this.num;
   }
+  // placeOrder(){
+  //   this.uSer.placeOrder(this.cid).subscribe(
+  //     data=>{
+  //       this.message=data.toString();
+  //       this.route.navigate(['/payment',this.message]);  
+  //     }
+  //   ) 
+  // }
 }
